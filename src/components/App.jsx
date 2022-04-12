@@ -16,7 +16,7 @@ const ContactsPage = lazy(() => import('../pages/ContactsPage'));
 
 export const App = () => {
   return (
-    <Suspense fallback={<p>loading...</p>}>
+    <Suspense fallback={<div className="ldsDualRing"></div>}>
       <Routes>
         <Route path="/" element={<LayoutPage />}>
           <Route element={<PublicRoute />}>

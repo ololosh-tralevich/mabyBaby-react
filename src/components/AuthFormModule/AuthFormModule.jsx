@@ -1,4 +1,6 @@
- const AuthFormModule = () => {
+// import '../../sass/layout/auth'
+
+const AuthFormModule = () => {
      return (<div>
          {/* your code */}
          <p>auth</p>
