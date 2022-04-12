@@ -14,6 +14,8 @@ const addSessionId = sId => {
   axios.defaults.headers.common.SessionId = `Bearer ${sId}`;
 };
 
+
+
 const registerUser = userData => {
   const { data: result } = axios.post('/auth/register', userData);
   // console.log('REG: ', result);
@@ -47,7 +49,7 @@ const refreshUser = () => {
 // Google auth??
 
 const getUserInfo = () => {
-  const data = axios.get('/auth/refresh');
+  const data = axios.get('/user');
   // console.log('GetUsrInfo', result)
   return data;
 };

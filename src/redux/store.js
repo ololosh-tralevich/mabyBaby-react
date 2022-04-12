@@ -25,7 +25,7 @@ const persistedUserReducer = persistReducer(persistConfig, userReducer);
 
 export const store = configureStore({
   reducer: {
-    user: persistedUserReducer,
+    auth: persistedUserReducer,
     contacts: qaReducer,
   },
   middleware: getDefaultMiddleware =>
