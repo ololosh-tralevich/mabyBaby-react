@@ -23,7 +23,7 @@ export const App = () => {
             <Route path="auth" element={<AuthPage />} />
           </Route>
           <Route element={<PrivateRoute />}>
-            <Route path="" element={<MainPage />} />
+            <Route index element={<MainPage />} />
             <Route path="test" element={<TestPage />} />
             <Route path="results" element={<ResultsPage />} />
             <Route path="useful-info" element={<UsefulInfoPage />} />
