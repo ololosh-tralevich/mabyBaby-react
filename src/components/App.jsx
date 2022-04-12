@@ -1,17 +1,38 @@
+import {lazy, Suspense, useEffect} from 'react'
+import {Route, Routes, Navigate} from 'react-router-dom'
+
+// import { useDispatch } from 'react-redux';
+// import { userOperations } from '../redux/userAccount/userAccount-operations';
+import PublicRoute from '../shared/Components/PublicRoute';
+import PrivateRoute from '../shared/Components/PrivateRoute';
+
+import LayoutPage from '../pages/LayoutPage';
+const AuthPage = lazy(()=>import('../pages/AuthPage'));
+const MainPage = lazy(()=>import('../pages/MainPage'));
+const TestPage = lazy(()=>import('../pages/TestPage'));
+const ResultsPage = lazy(()=>import('../pages/ResultsPage'));
+const UsefulInfoPage = lazy(()=>import('../pages/UsefulInfoPage'));
+const ContactsPage = lazy(()=>import('../pages/ContactsPage'));
+
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        textTransform: 'uppercase',
-        color: '#010101',
-      }}
-    >
-      React homework template
-    </div>
+    <Suspense fallback={<p>loading...</p>}>
+      <Routes>
+        <Route element={<LayoutPage/>}>
+        <Route element={<PublicRoute/>}>
+          <Route path='auth' element={<AuthPage/>}/>
+        </Route>
+        <Route element={<PrivateRoute/>}>
+        <Route path='/' element={<MainPage/>}/>
+          <Route path='test' element={<TestPage/>}/>
+          <Route path='results' element={<ResultsPage/>}/>
+          <Route path='useful-info' element={<UsefulInfoPage/>}/>
+          <Route path='contacts' element={<ContactsPage/>}/>
+        </Route>
+        </Route>
+      </Routes>
+    </Suspense>
+
   );
 };
