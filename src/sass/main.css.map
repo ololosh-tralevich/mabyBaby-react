@@ -6,7 +6,15 @@
         "utils/_mixins.scss",
         "utils/_common.scss",
         "utils/_container.scss",
-        "utils/_variables.scss"
+        "utils/_variables.scss",
+        "../components/HeaderModule/_header.scss",
+        "../components/AuthFormModule/_authForm.scss",
+        "../components/MainModule/_home.scss",
+        "../components/FooterModule/_footer.scss",
+        "../components/TestModule/_testModule.scss",
+        "../components/ResultsModule/_results.scss",
+        "../components/ContactsModule/_contacts.scss",
+        "../components/UsefulInfoModule/_usefullInfo.scss"
     ],
     "names": [],
     "file": "main.css"
