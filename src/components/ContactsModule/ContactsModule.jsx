@@ -2,6 +2,7 @@ const ContactsModule = () => {
     return (
         <div>
             {/* your code */}
+            <p>contacts</p>
         </div>
     )
 }
