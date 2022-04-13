@@ -18,7 +18,7 @@ import qaReducer from './qaTests/qaTests-reducer';
 const persistConfig = {
   key: 'user',
   storage,
-  whitelist: ['token'],  // Настроить ! ! ! !
+  whitelist: ['token'], // Настроить ! ! ! !
 };
 
 const persistedUserReducer = persistReducer(persistConfig, userReducer);

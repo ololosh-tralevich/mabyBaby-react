@@ -28,16 +28,16 @@ const logoutUser = async () => {
   return result;
 };
 
-const refreshUser = async (sId) => {
-  const { data: result } = await axios.post('/auth/refresh', sId); 
+const refreshUser = async sId => {
+  const { data: result } = await axios.post('/auth/refresh', sId);
   // console.log('Refresh: ', result);
   return result;
 };
 
 // Google auth??
 
-const getUserInfo = async (userEmail) => {
-  const {data: result} = await axios.get('/user', userEmail);  // Возвращает Email ! ! !
+const getUserInfo = async userEmail => {
+  const { data: result } = await axios.get('/user', userEmail); // Возвращает Email ! ! !
   // console.log('GetUsrInfo', result)
   return result;
 };

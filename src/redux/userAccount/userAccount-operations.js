@@ -43,7 +43,7 @@ const refreshUser = createAsyncThunk(
   async (_, { getState, rejectWithValue }) => {
     const { auth } = getState();
     try {
-      const result = await authApi.refreshUser({sid: auth.sessionId});
+      const result = await authApi.refreshUser({ sid: auth.sessionId });
       return result;
     } catch (err) {
       return rejectWithValue(err);
