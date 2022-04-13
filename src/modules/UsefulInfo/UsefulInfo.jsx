@@ -1,6 +1,6 @@
 import styles from './usefulInfo.module.scss'
 
-const UsefulInfoModule = () => {
+const UsefulInfo = () => {
   return (
     <div>
       {/* your code */}
@@ -9,4 +9,4 @@ const UsefulInfoModule = () => {
   );
 };
 
-export default UsefulInfoModule;
+export default UsefulInfo;

@@ -1,6 +1,6 @@
 import styles from './test.module.scss'
 
-const TestModule = () => {
+const Test = () => {
     return (
         <div>
             {/* your code */}
@@ -9,4 +9,4 @@ const TestModule = () => {
     )
 }
 
-export default TestModule;
+export default Test;

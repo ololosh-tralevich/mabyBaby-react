@@ -1,7 +1,7 @@
-import UsefulInfo from "../../modules/UsefulInfo/UsefulInfo";
+import UsefulInfo from '../../modules/UsefulInfo/UsefulInfo';
 
 const UsefulInfoPage = () => {
-    return <UsefulInfo/>;
-}
+  return <UsefulInfo />;
+};
 
 export default UsefulInfoPage;

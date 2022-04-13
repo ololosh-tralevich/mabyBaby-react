@@ -59,6 +59,10 @@ select {
   font: inherit;
 }
 
+button {
+  cursor: pointer;
+}
+
 .container {
   max-width: 320px;
   padding: 0 20px;
@@ -92,4 +96,3 @@ select {
   --first-grey-border-color: #00122f;
   --second-grey-border-color: #e2e3e5;
 }
-/*# sourceMappingURL=main.css.map */

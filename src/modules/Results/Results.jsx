@@ -1,6 +1,6 @@
 import styles from './results.module.scss'
 
-const ResultsModule = () => {
+const Results = () => {
     return (
         <div>
             {/* your code */}
@@ -9,4 +9,4 @@ const ResultsModule = () => {
     )
 }
 
-export default ResultsModule;
+export default Results;

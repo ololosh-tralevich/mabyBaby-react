@@ -1,10 +1,13 @@
-import styles from './authForm.module.scss'
+import AuthFormComponent from '../../shared/components/AuthForm/AuthForm';
 
-const AuthFormModule = () => {
-     return (<div>
-         {/* your code */}
-         <p>auth</p>
-     </div>)
- }
+import styles from './authForm.module.scss';
 
- export default AuthFormModule;
+const AuthForm = () => {
+  return (
+    <div>
+      <AuthFormComponent />
+    </div>
+  );
+};
+
+export default AuthForm;

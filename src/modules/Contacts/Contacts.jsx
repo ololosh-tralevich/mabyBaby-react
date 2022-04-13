@@ -1,6 +1,6 @@
 import styles from './contacts.module.scss'
 
-const ContactsModule = () => {
+const Contacts = () => {
     return (
         <div>
             {/* your code */}
@@ -9,4 +9,4 @@ const ContactsModule = () => {
     )
 }
 
-export default ContactsModule;
+export default Contacts;

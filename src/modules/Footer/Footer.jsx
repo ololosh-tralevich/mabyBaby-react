@@ -1,6 +1,6 @@
 import styles from './footer.module.scss'
 
-const FooterModule = () => {
+const Footer = () => {
     return (
         <footer>
             {/* your code */}
@@ -9,4 +9,4 @@ const FooterModule = () => {
     )
 }
 
-export default FooterModule;
+export default Footer;

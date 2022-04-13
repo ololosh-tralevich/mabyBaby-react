@@ -1,11 +1,11 @@
 import styles from './header.module.scss'
 
 
-const HeaderModule = () => {
+const Header = () => {
     return (<header>
         {/* your code */}
         <p>header</p> 
     </header>)
 }
 
-export default HeaderModule;
+export default Header;

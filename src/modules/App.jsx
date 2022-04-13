@@ -3,8 +3,8 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 
 // import { useDispatch } from 'react-redux';
 // import { userOperations } from '../redux/userAccount/userAccount-operations';
-import PublicRoute from '../shared/Components/PublicRoute';
-import PrivateRoute from '../shared/Components/PrivateRoute';
+import PublicRoute from '../shared/components/PublicRoute';
+import PrivateRoute from '../shared/components/PrivateRoute';
 
 import LayoutPage from '../pages/LayoutPage';
 const AuthPage = lazy(() => import('../pages/AuthPage'));
