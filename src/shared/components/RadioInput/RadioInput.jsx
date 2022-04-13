@@ -17,7 +17,7 @@ const RadioInput = ({type, name, value, required, onChange}) => {
 
 {/* 
 
-Пример: <RadioInput type={'radio'} name={'answer'} value={'answer 1'} required={false}/> 
+Пример: <RadioInput type={'radio'} name={'answer'} value={'answer 1'} required={false} onChange={yourFunc}/> 
 
 */}
 
