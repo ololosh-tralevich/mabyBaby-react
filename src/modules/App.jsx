@@ -14,7 +14,9 @@ const ResultsPage = lazy(() => import('../pages/ResultsPage'));
 const UsefulInfoPage = lazy(() => import('../pages/UsefulInfoPage'));
 const ContactsPage = lazy(() => import('../pages/ContactsPage'));
 
-export const App = () => {
+// import '../sass/main.scss';
+
+const App = () => {
   return (
     <Suspense fallback={<div className="ldsDualRing"></div>}>
       <Routes>
@@ -35,3 +37,5 @@ export const App = () => {
     </Suspense>
   );
 };
+
+export default App
