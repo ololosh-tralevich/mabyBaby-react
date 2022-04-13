@@ -1,3 +1,5 @@
+import styles from './usefulInfo.module.scss'
+
 const UsefulInfoModule = () => {
   return (
     <div>

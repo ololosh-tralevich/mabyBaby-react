@@ -1,3 +1,5 @@
+import styles from './contacts.module.scss'
+
 const ContactsModule = () => {
     return (
         <div>

@@ -1,13 +1,13 @@
 import { Outlet } from 'react-router-dom';
-import HeaderModule from '../../components/HeaderModule/HeaderModule';
-import FooterModule from '../../components/FooterModule/FooterModule';
+import Header from '../../modules/Header/Header';
+import Footer from '../../modules/Footer/Footer';
 
 const LayoutPage = () => {
   return (
     <>
-      <HeaderModule />
+      <Header />
       <Outlet />
-      <FooterModule />
+      <Footer />
     </>
   );
 };

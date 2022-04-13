@@ -2,7 +2,9 @@ import {useSelector, shallowEqual} from 'react-redux';
 
 import { getGlobalStore } from '../../redux/userAccount/userAccount-selectors';
 
-const MainModule = () => {
+import styles from './home.module.scss'
+
+const Home = () => {
     const globalStore = useSelector(getGlobalStore, shallowEqual)
     console.log(globalStore)
 
@@ -14,4 +16,4 @@ const MainModule = () => {
     )
 }
 
-export default MainModule;
+export default Home;

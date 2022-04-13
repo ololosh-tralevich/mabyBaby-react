@@ -1,3 +1,5 @@
+import styles from './test.module.scss'
+
 const TestModule = () => {
     return (
         <div>

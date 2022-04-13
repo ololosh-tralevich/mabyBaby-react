@@ -1,7 +1,7 @@
-import TestModule from '../../components/TestModule/TestModule';
+import Test from '../../modules/Test/Test';
 
 const TestPage = () => {
-    return <TestModule/>
+    return <Test/>
 }
 
 export default TestPage

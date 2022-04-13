@@ -1,7 +1,7 @@
-import ContactsModule from '../../components/ContactsModule/ContactsModule';
+import Contacts from '../../modules/Contacts/Contacts';
 
 const ContactsPage = () => {
-  return <ContactsModule />;
+  return <Contacts />;
 };
 
 export default ContactsPage;

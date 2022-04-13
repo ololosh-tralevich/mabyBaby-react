@@ -1,7 +1,7 @@
-import MainModule from '../../components/MainModule';
+import Home from '../../modules/Home';
 
 const MainPage = () => {
-  return <MainModule />;
+  return <Home />;
 };
 
 export default MainPage;

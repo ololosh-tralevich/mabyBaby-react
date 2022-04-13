@@ -1,3 +1,5 @@
+import styles from './results.module.scss'
+
 const ResultsModule = () => {
     return (
         <div>

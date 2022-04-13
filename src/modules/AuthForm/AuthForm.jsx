@@ -1,4 +1,4 @@
-// import '../../sass/layout/auth'
+import styles from './authForm.module.scss'
 
 const AuthFormModule = () => {
      return (<div>

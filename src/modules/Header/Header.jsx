@@ -1,3 +1,6 @@
+import styles from './header.module.scss'
+
+
 const HeaderModule = () => {
     return (<header>
         {/* your code */}

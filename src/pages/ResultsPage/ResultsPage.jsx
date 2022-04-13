@@ -1,7 +1,7 @@
-import ResultsModule from '../../components/ResultsModule';
+import Results from '../../modules/Results';
 
 const ResultsPage = () => {
-  return <ResultsModule />;
+  return <Results />;
 };
 
 export default ResultsPage;
