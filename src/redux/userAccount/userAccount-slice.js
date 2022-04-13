@@ -27,7 +27,8 @@ const userSlice = createSlice({
       state.error = false;
     },
     [registerUser.fulfilled]: (state, { payload }) => {
-      state.user = { ...payload.userData };
+      console.log(payload)
+      state.user = { ...payload };
       state.isUserLogin = true;
       state.loading = false;
     },

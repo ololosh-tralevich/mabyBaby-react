@@ -3,55 +3,43 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://protest-backend.goit.global';
 
 const addAccessToken = token => {
-  axios.defaults.headers.common.AccessToken = `Bearer ${token}`;
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 const addRefreshToken = token => {
-  axios.defaults.headers.common.RefreshToken = `Bearer ${token}`;
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-const addSessionId = sId => {
-  axios.defaults.headers.common.SessionId = `Bearer ${sId}`;
-};
-
-
-
-const registerUser = userData => {
-  const { data: result } = axios.post('/auth/register', userData);
-  // console.log('REG: ', result);
+const registerUser = async userData => {
+  const { data: result } = await axios.post('/auth/register', userData);
   return result;
 };
 
-const loginUser = userData => {
-  const { data: result } = axios.post('/auth/login', userData);
+const loginUser = async userData => {
+  const { data: result } = await axios.post('/auth/login', userData);
   addAccessToken(result.accessToken);
   addRefreshToken(result.refreshToken);
-  addSessionId(result.sid);
-  // console.log('Login: ', result);
   return result;
 };
 
-const logoutUser = () => {
-  const { data: result } = axios.post('/auth/logout');
-  // console.log('Logout: ', result)
+const logoutUser = async () => {
+  const { data: result } = await axios.post('/auth/logout');
+  // console.log('Logout: ', result);
   return result;
 };
 
-const refreshUser = () => {
-  const { data: result } = axios.post('/auth/refresh'); // SID ????
-  addAccessToken(result.accessToken);
-  addRefreshToken(result.refreshToken);
-  addSessionId(result.sid);
+const refreshUser = async (sId) => {
+  const { data: result } = await axios.post('/auth/refresh', sId); 
   // console.log('Refresh: ', result);
   return result;
 };
 
 // Google auth??
 
-const getUserInfo = () => {
-  const data = axios.get('/user');
+const getUserInfo = async (userEmail) => {
+  const {data: result} = await axios.get('/user', userEmail);  // Возвращает Email ! ! !
   // console.log('GetUsrInfo', result)
-  return data;
+  return result;
 };
 
 const authApi = {
