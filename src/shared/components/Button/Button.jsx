@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import styles from './orangeButton.module.scss';
+import styles from './button.module.scss';
 
 const Button = ({ onClickBtn, btnText, isActive, type }) => {
   const isActiveBtn = () => {
