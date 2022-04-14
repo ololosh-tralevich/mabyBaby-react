@@ -1,0 +1,48 @@
+
+.login__info{
+    width:420px;
+    height:190px
+}
+.wrapper 
+{
+    display: flex;
+    padding: 40px;
+    align-items: center;
+}
+.form{
+    width: 505px;
+height: 527px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+margin-left: 105px;
+}
+.form__buttons{
+    display: flex;
+}
+.text{
+    margin-bottom: 30px;
+}
+.TextField{
+    margin-bottom: 30px;
+    width: 425px;
+    height: 56px;
+   border: 1px solid #CED2D1;
+}
+.Button{
+    margin-right: 20px;
+    width: 202px;
+    height: 60px;
+    background-color: #FF6B09;
+    border: 0px black solid;
+    color: white;
+}
+
+.Button1{
+    margin-right: 20px;
+    width: 202px;
+    height: 60px;
+    background-color: white;
+    border: 1px solid #CED2D1;
+    color: black;
+}

@@ -50,7 +50,7 @@ const data = [
 
   const Results = () => {
     return (
-        <div className="container wrapper_answer" >
+        <div className="container" >
     
             <h1>Результаты</h1>
             <p>[ Теория тестирования_]</p>

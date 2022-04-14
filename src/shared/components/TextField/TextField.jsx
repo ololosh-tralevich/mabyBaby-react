@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 
 import styles from './textField.module.scss';
 
-const TextField = ({ type, name, placeholder, required, onType }) => {
+const TextField = ({ type, name, placeholder, required, onType,className }) => {
   return (
     <input
-      className={styles.textField}
+      className={className}
       type={type}
       name={name}
       placeholder={placeholder}
