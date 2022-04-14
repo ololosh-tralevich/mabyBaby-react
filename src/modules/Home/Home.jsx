@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
 
-import { useSelector, shallowEqual } from 'react-redux';
+// import { useSelector, shallowEqual } from 'react-redux';
 
-import { getGlobalStore } from '../../redux/userAccount/userAccount-selectors';
+// import { getGlobalStore } from '../../redux/userAccount/userAccount-selectors';
 
 import ArrowRight from './ArrowRight';
 
 import styles from './home.module.scss';
 
 const Home = () => {
-  const globalStore = useSelector(getGlobalStore, shallowEqual);
-  console.log(globalStore);
+  // const globalStore = useSelector(getGlobalStore, shallowEqual);
+  // console.log(globalStore);
 
   return (
     <section className="container">
