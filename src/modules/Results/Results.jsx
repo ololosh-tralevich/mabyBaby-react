@@ -1,5 +1,5 @@
 import styles from "./results.module.scss"
-import cartinka from "../Results/catWithBubble.png"
+import cartinka from "../../images/results/catWithBubble.png"
 import Button from '../../shared/components/Button/Button';
 
 import { PieChart, Pie, Cell } from "recharts";
