@@ -1,4 +1,4 @@
-
+import styles from "./results.module.scss"
 import cartinka from "../Results/catWithBubble.png"
 import Button from '../../shared/components/Button';
 
@@ -50,20 +50,19 @@ const data = [
 
   const Results = () => {
     return (
-        <div className="container" >
+        <div className="container">
     
             <h1>Результаты</h1>
             <p>[ Теория тестирования_]</p>
             {Crujok()}
-            <div className="answers">
+            <div className={styles.answers}>
             <p>Верных ответов - 12 </p>
             <p>Всего вопросов - 12</p>
             </div>
-            <img className="image" src={cartinka}></img>
+            <img className={styles.image} src={cartinka}></img>
             <h2>Неплохой результат!</h2>
             <p>Но тебе еще нужно доучить материалы.</p>
-            <Button btnText="Пройти еще раз" type='button' onClickBtn={btnClick} className="button" isActive={true}></Button>
-            {/* <button className={styles.button}>Пройти еще раз</button> */}
+            <Button btnText="Пройти еще раз" type='button' onClickBtn={btnClick} className={styles.button} isActive={true}></Button>
         </div>
     )
 }
