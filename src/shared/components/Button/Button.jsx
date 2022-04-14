@@ -2,13 +2,9 @@ import PropTypes from 'prop-types';
 
 import styles from './button.module.scss';
 
-const Button = ({ onClickBtn, btnText, isActive, type,className }) => {
-  
+const Button = ({ onClickBtn, btnText, isActive, type,className }) => {  
   const isActiveBtn = () => {
-
-    const result=isActive ? "styles.activeBtn" : "styles.inActiveBtn";
- 
-    return result
+    return isActive ? styles.activeBtn : styles.inActiveBtn;   // удалить, если не используем
   };
 
   
