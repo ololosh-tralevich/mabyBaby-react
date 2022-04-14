@@ -67,12 +67,12 @@ const Results = () => {
   return (
     <div className="container">
       <div className={styles.wrapper_answer}>
-        <h1 className={styles.header}>Результаты</h1>
-        <p className={styles.header__text}>[ Теория тестирования_]</p>
+        <h1 className={styles.header}>Results</h1>
+        <p className={styles.header__text}>[ Testing theory_]</p>
         {Crujok()}
         <div className={styles.answers}>
-          <p className={styles.text_answers}>Верных ответов - 12 </p>
-          <p>Всего вопросов - 12</p>
+          <p className={styles.text_answers}>Correct answers - 9 </p>
+          <p>Total questions - 12</p>
         </div>
         <picture>
           <source
@@ -85,10 +85,10 @@ const Results = () => {
           />
           <img src={catPc} alt="котек" />
         </picture>
-        <h2>Неплохой результат!</h2>
-        <p className={styles.text}>Но тебе еще нужно доучить материалы.</p>
+        <h2>Not bad!</h2>
+        <p className={styles.text}>But you still need to learn some materials.</p>
         <Button
-          btnText="Пройти еще раз"
+          btnText="Try again"
           type="button"
           onClickBtn={btnClick}
           className={styles.button}
