@@ -1,10 +1,9 @@
 import styles from './results.module.scss';
 import Button from '../../shared/components/Button';
 
-
 import { PieChart, Pie, Cell } from 'recharts';
-import catPc from './catPcx.png';
-import catPc2x from './catPcx2.png';
+import catPc from '../../images/results/catPcx.png';
+import catPc2x from '../../images/results/catPcx2.png';
 
 const data = [
   { name: 'false answer', value: 3 },
@@ -79,14 +78,13 @@ const Results = () => {
             media="(max-width: 719px)"
             src="./CatMobilex2.png  1x, ./CatMobilex2.png 2x"
           />
-          <source
-            media="(min-width: 720px)"
-            src={catPc2x}
-          />
+          <source media="(min-width: 720px)" src={catPc2x} />
           <img src={catPc} alt="котек" />
         </picture>
         <h2>Not bad!</h2>
-        <p className={styles.text}>But you still need to learn some materials.</p>
+        <p className={styles.text}>
+          But you still need to learn some materials.
+        </p>
         <Button
           btnText="Try again"
           type="button"
