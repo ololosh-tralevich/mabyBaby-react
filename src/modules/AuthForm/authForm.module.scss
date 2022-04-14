@@ -1,46 +1,125 @@
-.login__info {
-  width: 420px;
-  height: 190px;
-}
+@import '../../sass/main';
+
 .wrapper {
-  display: flex;
-  padding: 40px;
-  align-items: center;
+    width: 280px;
+    padding: 30px 20px;
+    background-color: #ffffff;
+    height: auto;
+
+    @include mq(tablet){
+        width: 540px;
+        padding: 40px 60px;
+    }
+    @include mq(desktop){
+        width: 500px;
+        padding: 40px;
+        margin-left: 100px;
+    }
 }
 .form {
-  width: 505px;
-  height: 527px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 105px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .form__buttons {
-  display: flex;
+    display: flex;
+    justify-content: space-between;
 }
 .text {
-  margin-bottom: 30px;
+    color: #000000;
+    font-size: 10px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    @include mq(tablet){
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
 }
 .TextField {
-  margin-bottom: 30px;
-  width: 425px;
-  height: 56px;
-  border: 1px solid #ced2d1;
-}
-.Button {
-  margin-right: 20px;
-  width: 202px;
-  height: 60px;
-  background-color: #ff6b09;
-  border: 0px black solid;
-  color: white;
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding: 20px;
+    max-width: 240px;
+    height: 56px;
+    border: 1px solid #CED2D1;
+
+    @include mq(tablet){
+        max-width: 425px;
+        margin-bottom: 25px;
+        &:nth-child(3){
+            margin-bottom: 40px;
+        }
+    }
+
+
 }
 
-.Button1 {
-  margin-right: 20px;
-  width: 202px;
-  height: 60px;
-  background-color: white;
-  border: 1px solid #ced2d1;
-  color: black;
+
+.button{
+    font-weight: bold;
+    font-size: 10px;
+    width: 110px;
+    height: 60px;
+    background-color: white;
+    border: 1px solid #CED2D1;
+    color: black;
+    @include mq(tablet){
+        width: 200px;
+        font-size: 13px;
+    }
 }
+
+.button:hover,
+.button:focus{
+    background-color: #FF6B09;
+    border: 0px black solid;
+    color: white;
+}
+// =======
+// .login__info {
+//   width: 420px;
+//   height: 190px;
+// }
+// .wrapper {
+//   display: flex;
+//   padding: 40px;
+//   align-items: center;
+// }
+// .form {
+//   width: 505px;
+//   height: 527px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   margin-left: 105px;
+// }
+// .form__buttons {
+//   display: flex;
+// }
+// .text {
+//   margin-bottom: 30px;
+// }
+// .TextField {
+//   margin-bottom: 30px;
+//   width: 425px;
+//   height: 56px;
+//   border: 1px solid #ced2d1;
+// }
+// .Button {
+//   margin-right: 20px;
+//   width: 202px;
+//   height: 60px;
+//   background-color: #ff6b09;
+//   border: 0px black solid;
+//   color: white;
+// }
+
+// .Button1 {
+//   margin-right: 20px;
+//   width: 202px;
+//   height: 60px;
+//   background-color: white;
+//   border: 1px solid #ced2d1;
+//   color: black;
+// }
+// >>>>>>> dev
