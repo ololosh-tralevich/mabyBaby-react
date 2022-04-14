@@ -1,6 +1,6 @@
 import styles from "./results.module.scss"
 import cartinka from "../Results/catWithBubble.png"
-import Button from '../../shared/components/Button';
+import Button from '../../shared/components/Button/Button';
 
 import { PieChart, Pie, Cell } from "recharts";
 const data = [
