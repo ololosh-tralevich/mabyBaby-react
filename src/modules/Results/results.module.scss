@@ -1,25 +1,113 @@
+@import "../../sass/main.scss";
 .button {
   width: 190px;
   height: 48px;
   background-color: #ff6b09;
   border: 0 solid black;
   cursor: pointer;
+  margin-bottom: 40px;
+  @include mq(tablet){
+    margin-bottom: 100px;
+  }
+  @include mq(tablet){
+    margin-bottom: 60px;
+  }
 }
 
 .image {
+  @include mq(tablet){
+    margin-bottom: 10px;
+    margin-top: 30px;
+    width: 285px;
+  height: 285px;
+  
+  }
+  margin-bottom: 20px;
+    margin-top: 20px;
   display: flex;
-  width: 176px;
-  height: 176px;
+  width: 156px;
+  height: 156px;
   
 }
 .answers{
+  font-family: 'Montserrat Medium';
+font-style: normal;
+font-weight: 500;
+font-size: 10px;
+line-height: 12px;
+letter-spacing: 0.02em; 
+  margin-top: 20px;
+  @include mq(tablet){
+    font-family: 'Montserrat Medium';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 20px;
+letter-spacing: 0.02em;
+margin-top: 30px;
+  }
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 .wrapper_answer
 {
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+}
+.text{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  @include mq(tablet)
+  {
+    margin-bottom: 50px;
+  }
+}
+.text_answers
+{
+  margin-right: 20px;
+}
+.header{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 30px;
+
+  
+  text-align: center;
+  letter-spacing: 0.02em;
+  @include mq(tablet){
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 22px;
+line-height: 30px;
+/* or 136% */
+
+text-align: center;
+letter-spacing: 0.02em;
+  }
+}
+.header__text{
+  font-family: 'Montserrat Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  @include mq(tablet){
+    font-family: 'Montserrat Medium';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+letter-spacing: 0.02em;
+text-transform: uppercase;
+  }
 }

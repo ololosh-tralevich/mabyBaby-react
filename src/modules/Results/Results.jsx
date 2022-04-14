@@ -1,5 +1,5 @@
 import styles from "./results.module.scss"
-import cartinka from "../Results/catWithBubble.png"
+import cartinka from "../Results/catwithbuble.png"
 import Button from '../../shared/components/Button';
 
 import { PieChart, Pie, Cell } from "recharts";
@@ -25,14 +25,14 @@ const data = [
   const Crujok=()=>{
       return(
           <>
-        <PieChart width={400} height={400}>
+        <PieChart width={300} height={300}>
         <Pie
           data={data}
-          cx={200}
-          cy={200}
+          cx={150}
+          cy={150}
           labelLine={false}
           label={renderCustomizedLabel}
-          outerRadius={80}
+          outerRadius={145}
           fill="#8884d8"
           dataKey="value"
         >
@@ -51,18 +51,19 @@ const data = [
   const Results = () => {
     return (
         <div className="container">
-    
-            <h1>Результаты</h1>
-            <p>[ Теория тестирования_]</p>
+          <div className={styles.wrapper_answer}>
+            <h1 className={styles.header}>Результаты</h1>
+            <p className={styles.header__text}>[ Теория тестирования_]</p>
             {Crujok()}
             <div className={styles.answers}>
-            <p>Верных ответов - 12 </p>
+            <p className={styles.text_answers}>Верных ответов - 12 </p>
             <p>Всего вопросов - 12</p>
             </div>
             <img className={styles.image} src={cartinka}></img>
             <h2>Неплохой результат!</h2>
-            <p>Но тебе еще нужно доучить материалы.</p>
+            <p className={styles.text}>Но тебе еще нужно доучить материалы.</p>
             <Button btnText="Пройти еще раз" type='button' onClickBtn={btnClick} className={styles.button} isActive={true}></Button>
+        </div>
         </div>
     )
 }
