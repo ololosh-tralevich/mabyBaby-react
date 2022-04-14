@@ -1,16 +1,17 @@
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-// import { useSelector, shallowEqual } from 'react-redux';
-
-// import { getGlobalStore } from '../../redux/userAccount/userAccount-selectors';
+import qaTestsAction from '../../redux/qaTests/qaTests-actions'
 
 import ArrowRight from './ArrowRight';
 
 import styles from './home.module.scss';
 
 const Home = () => {
-  // const globalStore = useSelector(getGlobalStore, shallowEqual);
-  // console.log(globalStore);
+  const dispatch = useDispatch()
+  const setTestType = testType => {
+    dispatch(qaTestsAction(testType))
+  };
 
   return (
     <section className="container">
@@ -26,11 +27,19 @@ const Home = () => {
           Linux kernel creator, hacker, 1969
         </h4>
         <div className={styles.linkBlock}>
-          <Link className={styles.testLink} to="test">
+          <Link
+            onClick={() => setTestType('tech')}
+            className={styles.testLink}
+            to="test"
+          >
             QA technical training
             <ArrowRight className={styles.arrowRight} color={'white'} />
           </Link>
-          <Link className={styles.testLink} to="test">
+          <Link
+            onClick={() => setTestType('theory')}
+            className={styles.testLink}
+            to="test"
+          >
             Testing theory
             <ArrowRight className={styles.arrowRight} color={'white'} />
           </Link>
