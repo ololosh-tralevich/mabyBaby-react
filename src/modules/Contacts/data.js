@@ -1,4 +1,4 @@
-import Rectangle_17 from './ContactCard/images/Rectangle_17.png';
+import Rectangle_17 from '../../images/contacts-card/Rectangle_17.png';
 
 const data = [
   {
