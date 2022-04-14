@@ -14,36 +14,45 @@ const AuthForm = () => {
   };
 
   return (
-    <div>
-      <form>
-        <TextField
-          type={'email'}
-          name={'email'}
-          placeholder={'E-mail'}
-          required={true}
-          onType={onType}
-        />
-        <TextField
-          type={'password'}
-          name={'password'}
-          placeholder={'Password'}
-          required={true}
-          onType={onType}
-        />
-        <Button
-          onClickBtn={submitForm}
-          btnText={'Sign in'}
-          isActive={true}
-          type={'submit'}
-        />
-        <Button
-          onClickBtn={submitForm}
-          btnText={'Sign up'}
-          isActive={false}
-          type={'submit'}
-        />
-      </form>
-    </div>
+      <div className={styles.wrapper}>
+          <form className={styles.form}>
+            <p className={styles.text}>
+            Login to our app using e-mail and password:
+            </p>
+            <TextField
+              type={'email'}
+              name={'email'}
+              placeholder={'E-mail'}
+              required={true}
+              onType={onType}
+              className={styles.TextField}
+            />
+            <TextField
+              type={'password'}
+              name={'password'}
+              placeholder={'Password'}
+              required={true}
+              onType={onType}
+              className={styles.TextField}
+            />
+            <div className={styles.form__buttons}>
+              <Button
+                onClickBtn={submitForm}
+                btnText={'Sign In '}
+                isActive={true}
+                type={'submit'}
+                className={styles.button}
+              />
+              <Button
+                onClickBtn={submitForm}
+                btnText={'Sign Up'}
+                isActive={false}
+                type={'submit'}
+                className={styles.button}
+              />
+            </div>
+          </form>
+        </div>
   );
 };
 

@@ -2,13 +2,14 @@ import PropTypes from 'prop-types';
 
 import styles from './button.module.scss';
 
-const Button = ({ onClickBtn, btnText, isActive, type }) => {
+const Button = ({ onClickBtn, btnText, isActive, type, className }) => {  
   const isActiveBtn = () => {
-    return isActive ? styles.activeBtn : styles.inActiveBtn;
+    return isActive ? styles.activeBtn : styles.inActiveBtn;   // удалить, если не используем
   };
 
+  
   return (
-    <button className={isActiveBtn()} type={type} onClick={onClickBtn}>
+    <button className={className} type={type} onClick={onClickBtn}>
       {btnText}
     </button>
   );
@@ -17,6 +18,7 @@ const Button = ({ onClickBtn, btnText, isActive, type }) => {
 export default Button;
 
 Button.propTypes = {
+  className:PropTypes.string.isRequired,
   onClickBtn: PropTypes.func.isRequired,
   btnText: PropTypes.string.isRequired,
   isActive: PropTypes.bool.isRequired,
