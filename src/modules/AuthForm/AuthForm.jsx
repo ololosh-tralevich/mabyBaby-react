@@ -1,5 +1,5 @@
 import TextField from '../../shared/components/TextField';
-import Button from '../../shared/components/Button';
+import Button from '../../shared/components/Button/Button';
 
 import styles from './authForm.module.scss';
 
