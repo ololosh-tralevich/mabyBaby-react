@@ -24,26 +24,26 @@ top: 170px;
 
 body {
    
-  background-image: url(./info-images/useful-info-320px.png);
+  background-image: url(../../images/useful-info/useful-info-320px.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top right;
   @include mq(retina) {
-    background-image: url(./info-images/useful-info-320px@2x.png);
+    background-image: url(../../images/useful-info/useful-info-320px@2x.png);
   };
 
   @include mq(tablet) {
-    background-image: url(./info-images/useful-info-768px.png);
+    background-image: url(../../images/useful-info/useful-info-768px.png);
 
     @include mq(retina) {
-      background-image: url(./info-images/useful-info-768px2x.png);
+      background-image: url(../../images/useful-info/useful-info-768px2x.png);
     }
   };
   @include mq(desktop) {
-    background-image: url(./info-images/useful-info.png);
+    background-image: url(../../images/useful-info/useful-info.png);
     
     @include mq(retina) {
-      background-image: url(./info-images/useful-info@2x.png);
+      background-image: url(../../images/useful-info/useful-info@2x.png);
     }
   };
 };
