@@ -15,34 +15,39 @@
 }
 
 .firstTitle {
+  position: relative;
   font-size: 12px;
   line-height: 1.67;
   text-align: center;
   letter-spacing: 0.02em;
   margin-top: 34px;
-  margin-bottom: 32px;
+  margin-bottom: 44px;
+  &::after {
+    position: absolute;
+    display: block;
+    content: ' ';  
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 2px;
+    opacity: 0.15;
+    background-color: #00122f;
+    @include mq(tablet) {
+      width: 322px;
+      top: 118px;
+    }
+  }
 
   @include mq(tablet) {
     font-size: 22px;
     line-height: 1.36;
     text-align: center;
     margin-top: 82px;
-    margin-bottom: 32px;
+    margin-bottom: 44px;
   }
   @include mq(desktop) {
     margin-top: 122px;
-  }
-}
-
-.horizontalLine {
-  width: 130px;
-  height: 2px;
-  opacity: 0.15;
-  margin-bottom: 12px;
-  background-color: #00122f;
-
-  @include mq(tablet) {
-    width: 322px;
   }
 }
 
