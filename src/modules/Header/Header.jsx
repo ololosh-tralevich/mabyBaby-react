@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import { userOperations } from '../../redux/userAccount/userAccount-operations';
-import { getUser } from '../../redux/userAccount/userAccount-selectors';
+import { getUser, getIsLogin } from '../../redux/userAccount/userAccount-selectors';
 
 import Modal from './Modal';
 import HeaderLogo from './svgComponents/HeaderLogo';
@@ -20,6 +20,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
   const userState = useSelector(getUser, shallowEqual);
+  const isLogin = useSelector(getIsLogin, shallowEqual);
   const openClose = () => {
     setModalOpen(prevState => {
       return !prevState;
@@ -34,16 +35,20 @@ const Header = () => {
             <HeaderLogo className={styles.headerLogo} color={'none'} />
           </Link>
           <ul className={styles.linksList}>
-            <li className={styles.linksListItem}>
+          {isLogin ? <> <li className={styles.linksListItem}>
               <NavLink className={linkClassName} to="/">
                 Home
               </NavLink>
             </li>
-            <li className={styles.linksListItem}>
+             <li className={styles.linksListItem}>
               <NavLink className={linkClassName} to="useful-info">
                 Materials
               </NavLink>
-            </li>
+            </li></> : <li className={styles.linksListItem}>
+              <NavLink className={linkClassName} to="auth">
+                Sign Up
+              </NavLink>
+            </li>}
             <li className={styles.linksListItem}>
               <NavLink className={linkClassName} to="contacts">
                 Contacts
@@ -59,12 +64,12 @@ const Header = () => {
         <button className={styles.openModalBtn} onClick={openClose}>
           <HeaderMenuLogo color="black" className={styles.openModalLogo} />
         </button>
-        <button
+        {!isLogin || <button
           className={styles.logoutBtn}
           onClick={() => dispatch(userOperations.logoutUser())}
         >
           <SignOutLogo color="black" className={styles.openModalLogo} />
-        </button>
+        </button>}
       </header>
       {!modalOpen || <Modal openClose={openClose} />}
     </>

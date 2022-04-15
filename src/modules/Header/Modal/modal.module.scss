@@ -24,6 +24,10 @@
   background-color: var(--main-backgr-color);
 }
 
+.modalList {
+  width: 100%;
+}
+
 .activeLink {
   @extend %navLinkRules;
   &::after {
