@@ -6,7 +6,7 @@ import { resources } from "./info-content/resources";
 
 const UsefulInfo = () => {
   return (
-        <main>            
+        <main className={styles.main}>            
             <div className="container">
                 <div className={styles.info}>                    
                     <InfoList infoList={literature} listTitle="Useful literature" />                  
