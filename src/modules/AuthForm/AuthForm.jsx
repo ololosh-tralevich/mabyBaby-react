@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-
 import TextField from '../../shared/components/TextField/TextField';
 import Button from '../../shared/components/Button/Button';
 
@@ -10,9 +9,9 @@ import { initialState } from './initialState';
 
 import styles from './authForm.module.scss';
 
-const AuthForm = ({onSubmit}) => {
+const AuthForm = ({ onSubmit }) => {
   const [form, setForm] = useState({ ...initialState });
-  const [type, setType] = useState('login')
+  const [type, setType] = useState('login');
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -22,14 +21,13 @@ const AuthForm = ({onSubmit}) => {
     }));
   };
 
-  const changeType = (type) => setType(type)
-  
+  const changeType = type => setType(type);
+
   const handleSubmit = e => {
     e.preventDefault();
-    onSubmit(form, type)
+    onSubmit(form, type);
     setForm({ ...initialState });
   };
-
 
   return (
     <div className={styles.wrapper}>
@@ -61,14 +59,14 @@ const AuthForm = ({onSubmit}) => {
             isActive={true}
             type={'submit'}
             className={styles.button}
-            onClickBtn={()=>changeType('login')}
+            onClickBtn={() => changeType('login')}
           />
           <Button
             btnText={'Sign Up'}
             isActive={false}
             type={'submit'}
             className={styles.button}
-            onClickBtn={()=>changeType('register')}
+            onClickBtn={() => changeType('register')}
           />
         </div>
       </form>
@@ -80,4 +78,4 @@ export default AuthForm;
 
 AuthForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-}
+};
