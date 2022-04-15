@@ -1,12 +1,19 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
 
-import testTypeAction from './qaTests-actions';
+import {setTestResults, setTestType} from './qaTests-actions';
 
-const testType = createReducer('', {
-  [testTypeAction]: (state, { payload }) => {
-    //   console.log(payload)
+const typeReducer = createReducer('', {
+  [setTestType]: (state, { payload }) => {   
     return (state = payload);
   },
 });
 
-export default testType
+const resultsReducer = createReducer('', {
+    [setTestResults]: (state, { payload }) => {   
+      return (state = payload);
+    },
+  });
+
+const test = combineReducers({type:typeReducer, result:resultsReducer})
+
+export default test;

@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import qaTestsAction from '../../redux/qaTests/qaTests-actions'
+import {setTestType} from '../../redux/qaTests/qaTests-actions'
 
 import ArrowRight from './ArrowRight';
 
@@ -9,8 +9,8 @@ import styles from './home.module.scss';
 
 const Home = () => {
   const dispatch = useDispatch()
-  const setTestType = testType => {
-    dispatch(qaTestsAction(testType))
+  const setType = type => {
+    dispatch(setTestType(type))
   };
 
   return (
@@ -28,7 +28,7 @@ const Home = () => {
         </h4>
         <div className={styles.linkBlock}>
           <Link
-            onClick={() => setTestType('tech')}
+            onClick={() => setType('tech')}
             className={styles.testLink}
             to="test"
           >

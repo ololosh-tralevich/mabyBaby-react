@@ -1,5 +1,5 @@
 import { createAction } from '@reduxjs/toolkit';
 
-const testType = createAction('qaTests/testType');
+export const setTestType = createAction('qaTests/setTestType');
+export const setTestResults = createAction('qaTest/setTestResults')
 
-export default testType;
