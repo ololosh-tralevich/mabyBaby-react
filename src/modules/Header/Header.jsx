@@ -14,7 +14,7 @@ import HeaderMenuLogo from './svgComponents/HeaderMenuLogo';
 import styles from './header.module.scss';
 
 const linkClassName = ({ isActive }) =>
-// console.log(isActive)
+  // console.log(isActive)
   isActive ? styles.activeLink : styles.inActiveLink;
 
 const Header = () => {
@@ -35,15 +35,23 @@ const Header = () => {
           <Link className={styles.headerLogoLink} to="/">
             <HeaderLogo className={styles.headerLogo} color={'none'} />
           </Link>
-          <NavLink className={linkClassName} to="/">
-            Home
-          </NavLink>
-          <NavLink className={linkClassName} to="useful-info">
-            Materials
-          </NavLink>
-          <NavLink className={linkClassName} to="contacts">
-            Contacts
-          </NavLink>
+          <ul className={styles.linksList}>
+            <li className={styles.linksListItem}>
+              <NavLink className={linkClassName} to="/">
+                Home
+              </NavLink>
+            </li>
+            <li className={styles.linksListItem}>
+              <NavLink className={linkClassName} to="useful-info">
+                Materials
+              </NavLink>
+            </li>
+            <li className={styles.linksListItem}>
+              <NavLink className={linkClassName} to="contacts">
+                Contacts
+              </NavLink>
+            </li>
+          </ul>
           {modalOpen || !Boolean(userState.email) || (
             <p className={styles.userProfileLogo}>
               {userState.email.slice(0, 1)}
@@ -52,6 +60,9 @@ const Header = () => {
         </div>
         <button className={styles.openModalBtn} onClick={openClose}>
           <HeaderMenuLogo color="black" className={styles.openModalLogo} />
+        </button>
+        <button className={styles.logoutBtn} onClick={openClose}>
+          <SignOutLogo color="black" className={styles.openModalLogo} />
         </button>
       </header>
       {!modalOpen || <Modal openClose={openClose} />}
