@@ -1,9 +1,15 @@
 import { Outlet, Navigate } from 'react-router-dom';
 
+import { shallowEqual, useSelector } from 'react-redux';
+
+import { getIsLogin } from '../../../redux/userAccount/userAccount-selectors';
+
 const PublicRoute = () => {
-//   if (isLogin) {
-//     return <Navigate to="/" />;
-//   }
+  const isLogin = useSelector(getIsLogin, shallowEqual);
+  // console.log(isLogin)
+  // if (isLogin) {
+  //   return <Navigate to="/" />;
+  // }
 
   return <Outlet />;
 };

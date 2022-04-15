@@ -11,6 +11,7 @@ const addRefreshToken = token => {
 };
 
 const registerUser = async userData => {
+  console.log(userData)
   const { data: result } = await axios.post('/auth/register', userData);
   return result;
 };
