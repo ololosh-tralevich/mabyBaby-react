@@ -9,6 +9,8 @@ import { getIsLogin } from '../../../redux/userAccount/userAccount-selectors';
 
 import SignOutLogo from '../svgComponents/SignOutLogo';
 
+import PropTypes from 'prop-types';
+
 import styles from './modal.module.scss';
 
 const modalRoot = document.getElementById('modalRoot');
@@ -54,3 +56,7 @@ const Modal = ({ openClose }) => {
 };
 
 export default Modal;
+
+Modal.propTypes = {
+  openClose: PropTypes.func.isRequired,
+};
