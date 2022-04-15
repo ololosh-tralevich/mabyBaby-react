@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const getTechTest = () => {
   const data = axios.get('/qa-test/tech');
-  //   console.log('Tech Test: ', data);
+    console.log('Tech Test: ', data);
   return data;
 };
 
