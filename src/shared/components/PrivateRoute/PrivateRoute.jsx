@@ -6,10 +6,9 @@ import { getIsLogin } from '../../../redux/userAccount/userAccount-selectors';
 
 const PrivateRoute = () => {
   const isLogin = useSelector(getIsLogin, shallowEqual);
-  // console.log(isLogin)
-//   if (!isLogin) {
-//     return <Navigate to="auth" />;
-//   }
+  if (!isLogin) {
+    return <Navigate to="auth" />;
+  }
 
   return <Outlet />;
 };

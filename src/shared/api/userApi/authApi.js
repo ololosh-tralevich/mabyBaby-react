@@ -6,12 +6,7 @@ const addAccessToken = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-const addRefreshToken = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
-
 const registerUser = async userData => {
-  console.log(userData)
   const { data: result } = await axios.post('/auth/register', userData);
   return result;
 };
@@ -19,7 +14,6 @@ const registerUser = async userData => {
 const loginUser = async userData => {
   const { data: result } = await axios.post('/auth/login', userData);
   addAccessToken(result.accessToken);
-  addRefreshToken(result.refreshToken);
   return result;
 };
 
@@ -29,17 +23,11 @@ const logoutUser = async () => {
   return result;
 };
 
-const refreshUser = async sId => {
-  const { data: result } = await axios.post('/auth/refresh', sId);
-  // console.log('Refresh: ', result);
-  return result;
-};
-
 // Google auth??
 
-const getUserInfo = async userEmail => {
-  const { data: result } = await axios.get('/user', userEmail); // Возвращает Email ! ! !
-  // console.log('GetUsrInfo', result)
+const getCurrentUser = async accToken => {
+  addAccessToken(accToken);
+  const { data: result } = await axios.get('/user');
   return result;
 };
 
@@ -47,8 +35,7 @@ const authApi = {
   registerUser,
   loginUser,
   logoutUser,
-  refreshUser,
-  getUserInfo,
+  getCurrentUser,
 };
 
 export default authApi;
