@@ -7,13 +7,16 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  overflow-y: scroll;
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
-  font-family: var(--main-font);}
+  font-family: var(--main-font);
+  margin: 0;
+}
+
+div#root {
+  background-color: var(--main-backgr-color);
+}
 
 img {
   display: block;
@@ -38,8 +41,8 @@ a {
   color: var(--main-text-color);
 }
 
-ul[class],
-ol[class] {
+ol[class],
+ul[class] {
   list-style: none;
 }
 
@@ -48,5 +51,4 @@ button,
 textarea,
 select {
   font: inherit;
-}   
-
+}

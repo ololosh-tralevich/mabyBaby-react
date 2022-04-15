@@ -1,34 +1,27 @@
-import { useState } from 'react';
-import Button from '../../shared/components/Button';
-import Loader from '../../shared/components/Loader';
-import Question from './Question';
-import qaAPI from '../../shared/api/qaApi/qaApi';
+
+import { Navigate } from 'react-router-dom';
+
+import { useSelector, shallowEqual } from 'react-redux';
+
+import { getTestType } from '../../redux/qaTests/qaTests-selectors';
 
 import styles from './test.module.scss';
-import { Link } from 'react-router-dom';
 
 const Test = () => {
-    const [questions, setQuestions] = useState([])
-    
-    const onClickFinish = () => {}
+    const testType = useSelector(getTestType, shallowEqual)
+    // console.log(testType)
 
-    const onAnswerSelect =() => {}
+  if (testType !== 'theory' && testType !== 'tech') {
+    return <Navigate to="/" />;
+  }
 
-    const answers = [];
-
-    return (
-        <div>           
-            <div>
-            <h2>Test Title</h2>
-            <Button onClickBtn={onClickFinish} btnText='Finish test' isActive={true} type='button' className='ButtonFinish' />            
-            <div>
-                <p><span></span></p>
-                <p></p>                
-                <Question answers ={answers} onChange={onAnswerSelect}/>                   
-            </div>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div>
+      {/* your code */}
+      <p>test</p>
+    </div>
+  );
+};
 
 export default Test;
+
