@@ -4,30 +4,30 @@ import { Navigate } from 'react-router-dom';
 
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 
-import { getTestType } from '../../redux/qaTests/qaTests-selectors';
+import { getTestType, getGlobalState, getTestsArr } from '../../redux/qaTests/qaTests-selectors';
 
 import { qaOperations } from '../../redux/qaTests/qaTests-operations';
 
 import styles from './test.module.scss';
 
+// import answers from './answers'
+
 const Test = () => {
+  const globalState = useSelector(getGlobalState, shallowEqual)
+  console.log(globalState.qaTests)
+
   const testType = useSelector(getTestType, shallowEqual);
-  console.log(testType);
-
+  const testArr = useSelector(getTestsArr, shallowEqual)
+  
   const dispatch = useDispatch();
-  const getTechTest = () => qaOperations.getTechTest();
-
-  // const getTest = () => {
-  //   dispatch(getTechTest())
-  // }
-
   useEffect(() => {
-    dispatch(getTechTest());
-  });
+    testType === 'tech' && dispatch(qaOperations.getTechTest());
+    testType === 'theory' && dispatch(qaOperations.getTheoryTest());
+  }, []);
 
-  // if (testType !== 'theory' && testType !== 'tech') {
-  //   return <Navigate to="/" />;
-  // }
+  if (testType !== 'tech' && testType !== 'theory') {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div>
