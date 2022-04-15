@@ -20,8 +20,8 @@ const MyRoutes = () => {
         <Route path="/" element={<LayoutPage />}>
           <Route element={<PublicRoute />}>
             <Route path="auth" element={<AuthPage />} />
-            <Route path="contacts" element={<ContactsPage />} />
           </Route>
+          <Route path="contacts" element={<ContactsPage />} />
           <Route element={<PrivateRoute />}>
             <Route index element={<MainPage />} />
             <Route path="test" element={<TestPage />} />

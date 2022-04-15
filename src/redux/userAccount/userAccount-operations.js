@@ -28,9 +28,9 @@ const loginUser = createAsyncThunk(
 
 const logoutUser = createAsyncThunk(
   '/auth/logout',
-  async (userData, { rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
-      const result = await authApi.logoutUser(userData); //user data ??
+      const result = await authApi.logoutUser();
       return result;
     } catch (err) {
       return rejectWithValue(err);
