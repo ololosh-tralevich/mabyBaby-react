@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import { Link, NavLink } from 'react-router-dom';
 
-import { useSelector, shallowEqual } from 'react-redux';
-import { getIsLogin } from '../../redux/userAccount/userAccount-selectors';
+import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import { userOperations } from '../../redux/userAccount/userAccount-operations';
 import { getUser } from '../../redux/userAccount/userAccount-selectors';
 
 import Modal from './Modal';
@@ -14,14 +14,12 @@ import HeaderMenuLogo from './svgComponents/HeaderMenuLogo';
 import styles from './header.module.scss';
 
 const linkClassName = ({ isActive }) =>
-  // console.log(isActive)
   isActive ? styles.activeLink : styles.inActiveLink;
 
 const Header = () => {
+  const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
   const userState = useSelector(getUser, shallowEqual);
-  // const isLogin = useSelector(getIsLogin, shallowEqual);
-  // console.log(isLogin)
   const openClose = () => {
     setModalOpen(prevState => {
       return !prevState;
@@ -61,7 +59,10 @@ const Header = () => {
         <button className={styles.openModalBtn} onClick={openClose}>
           <HeaderMenuLogo color="black" className={styles.openModalLogo} />
         </button>
-        <button className={styles.logoutBtn} onClick={openClose}>
+        <button
+          className={styles.logoutBtn}
+          onClick={() => dispatch(userOperations.logoutUser())}
+        >
           <SignOutLogo color="black" className={styles.openModalLogo} />
         </button>
       </header>
