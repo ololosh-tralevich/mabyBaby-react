@@ -28,23 +28,37 @@ const Modal = ({ openClose }) => {
   };
   return createPortal(
     <div className={styles.modalBlock}>
-      {!isLogin || (
-        <>
-          <NavLink onClick={openClose} className={linkClassName} to="/">
-            Home
+      <ul className={styles.modalList}>
+        {isLogin ? (
+          <>
+            <li>
+              <NavLink onClick={openClose} className={linkClassName} to="/">
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                onClick={openClose}
+                className={linkClassName}
+                to="useful-info"
+              >
+                Materials
+              </NavLink>
+            </li>
+          </>
+        ) : (
+          <li>
+            <NavLink onClick={openClose} className={linkClassName} to="auth">
+              Sign up
+            </NavLink>
+          </li>
+        )}
+        <li>
+          <NavLink onClick={openClose} className={linkClassName} to="contacts">
+            Contacts
           </NavLink>
-          <NavLink
-            onClick={openClose}
-            className={linkClassName}
-            to="useful-info"
-          >
-            Materials
-          </NavLink>
-        </>
-      )}
-      <NavLink onClick={openClose} className={linkClassName} to="contacts">
-        Contacts
-      </NavLink>
+        </li>
+      </ul>
       {!isLogin || (
         <button onClick={signOut} className={styles.signOutLogo}>
           <SignOutLogo className={styles.signOutSvg} color={'black'} />

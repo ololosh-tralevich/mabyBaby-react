@@ -24,6 +24,7 @@
   display: flex;
   align-items: center;
   border-bottom: 1px solid #e2e3e5;
+  position: relative;
 }
 
 .headerBlock {
@@ -33,7 +34,6 @@
   align-items: center;
 
   @include mq(tablet) {
-    position: relative;
     justify-content: space-between;
     padding: 20px;
   }
@@ -94,10 +94,6 @@
   letter-spacing: 0.02em;
   color: #555555;
   box-shadow: 0px 1px 1px rgba(18, 29, 46, 0.1);
-
-  @include mq(tablet) {
-    margin-right: 20px;
-  }
 }
 
 .openModalBtn {
@@ -112,6 +108,6 @@
   @extend %headerBtn;
   display: none;
   @include mq(tablet) {
-      display: block;
+    display: block;
   }
 }
