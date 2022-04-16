@@ -1,20 +1,13 @@
 import { useState } from 'react';
-
 import PropTypes from 'prop-types';
 
 import TextField from '../../shared/components/TextField/TextField';
 import Button from '../../shared/components/Button/Button';
 
-import { useSelector, shallowEqual } from 'react-redux';
-import { getLoading } from '../../redux/userAccount/userAccount-selectors';
-import Loader from '../../shared/components/Loader';
-
 import { initialState } from './initialState';
-
 import styles from './authForm.module.scss';
 
 const AuthForm = ({ onSubmit }) => {
-  const isLoading = useSelector(getLoading, shallowEqual);
   const [form, setForm] = useState({ ...initialState });
   const [type, setType] = useState('login');
 
@@ -35,10 +28,6 @@ const AuthForm = ({ onSubmit }) => {
   };
 
   return (
-    <>
-      {isLoading ? (
-        <Loader />
-      ) : (
         <div className={styles.wrapper}>
           <form className={styles.form} onSubmit={handleSubmit}>
             <p className={styles.text}>
@@ -80,8 +69,6 @@ const AuthForm = ({ onSubmit }) => {
             </div>
           </form>
         </div>
-       )}
-    </>
   );
 };
 
