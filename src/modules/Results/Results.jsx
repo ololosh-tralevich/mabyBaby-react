@@ -4,6 +4,7 @@ import Button from '../../shared/components/Button';
 import { PieChart, Pie, Cell } from 'recharts';
 import catPc from '../../images/results/catPcx.png';
 import catPc2x from '../../images/results/catPcx2.png';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const data = [
   { name: 'false answer', value: 3 },
@@ -60,9 +61,18 @@ const Crujok = () => {
     </>
   );
 };
-const btnClick = () => {};
+
 
 const Results = () => {
+  const navigate = useNavigate();
+  
+  const btnClick = () => {
+  
+  return navigate("/test");
+  
+   
+  };
+  
   return (
     <div className="container">
       <div className={styles.wrapper_answer}>
