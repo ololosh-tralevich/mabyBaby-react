@@ -36,7 +36,7 @@ const data = [
     id: 3,
     img: Goncharenko,
     name: 'Olga Goncharenko',
-    position: 'Back-End Developer',
+    position: 'Front-End Developer',
     social: {
       linkedin: 'https:/www.linkedin.com',
       github: 'https://github.com/GoncharenkoO',
@@ -49,7 +49,7 @@ const data = [
     id: 4,
     img: Dykyi,
     name: 'Danyil Dykyi',
-    position: 'Back-End Developer',
+    position: 'Front-End Developer',
     social: {
       linkedin: 'https://www.linkedin.com',
       github: 'https://github.com/bezdarshadow',
@@ -62,7 +62,7 @@ const data = [
     id: 5,
     img: Pedchenko,
     name: 'Yevhen Pedchenko',
-    position: 'Back-End Developer',
+    position: 'Front-End Developer',
     social: {
       linkedin: 'https://www.linkedin.com',
       github: 'https://github.com/WebStudioFlip',
@@ -75,7 +75,7 @@ const data = [
     id: 6,
     img: Bendyk,
     name: 'Volodymyr Bendyk',
-    position: 'Back-End Developer',
+    position: 'Front-End Developer',
     social: {
       linkedin: 'https://www.linkedin.com',
       github: 'https://github.com/wolodwolod',
