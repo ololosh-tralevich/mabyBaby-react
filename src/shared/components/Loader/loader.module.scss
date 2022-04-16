@@ -1,3 +1,5 @@
+@import '../../../sass/main.scss';
+
 /* Loader Styles Below */
 .ldsDualRing {
   position: absolute;
@@ -15,14 +17,26 @@
   content: ' ';
   display: block;
   top: 40%;
-  left: 47%;
-  // transform: translateX(50%);   Не работает ! ! ! !
-  width: 90px;
-  height: 90px;
+  left: 43%;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  border: 8px solid rgb(0, 0, 0);
+  border: 5px solid rgb(0, 0, 0);
   border-color: rgb(81, 0, 255) transparent rgb(255, 213, 0) transparent;
   animation: ldsDualRing 1.2s linear infinite;
+
+  @include mq(tablet) {
+    top: 40%;
+    left: 44.5%;
+    width: 90px;
+    height: 90px;
+    border: 8px solid rgb(0, 0, 0);
+    border-color: rgb(81, 0, 255) transparent rgb(255, 213, 0) transparent;
+  }
+  @include mq(desktop) {
+    top: 40%;
+    left: 47%;
+  }
 }
 @keyframes ldsDualRing {
   0% {

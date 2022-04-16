@@ -1,23 +1,38 @@
-import styles from './usefulInfo.module.scss'
+import { nanoid } from 'nanoid';
 
-import InfoList from "./InfoList";
-import { literature } from "./info-content/literature";
-import { resources } from "./info-content/resources";
+import { literature } from './info-content/literature';
+import { resources } from './info-content/resources';
+
+import styles from './usefulInfo.module.scss';
 
 const UsefulInfo = () => {
+  const literatureList = literature.map(item => {
+    return (
+      <li className={styles.litItem} key={nanoid()}>
+        <a href={item.link}>{item.content}</a>
+      </li>
+    );
+  });
+  const resourcesList = resources.map(item => {
+    return (
+      <li className={styles.resItem} key={nanoid()}>
+        <a href={item.link}>{item.content}</a>
+      </li>
+    );
+  });
+
   return (
-        <main className={styles.main}>            
-            <div className="container">
-                <div className={styles.info}>                    
-                    <InfoList infoList={literature} listTitle="Useful literature" />                  
-                    <InfoList infoList={resources} listTitle="Useful resources" />                
-                </div>                 
-            </div>           
-        </main>        
-    )
+    <main className={styles.mainBlock}>
+      <section className="container">
+        <div className={styles.infoBlock}>
+          <h2 className={styles.title}>Useful literature</h2>
+          <ol className={styles.litList}>{literatureList}</ol>
+          <h2 className={styles.title}>Useful resources</h2>
+          <ol className={styles.resList}>{resourcesList}</ol>
+        </div>
+      </section>
+    </main>
+  );
 };
 
 export default UsefulInfo;
-
-
-
