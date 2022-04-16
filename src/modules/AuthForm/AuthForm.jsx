@@ -5,11 +5,16 @@ import PropTypes from 'prop-types';
 import TextField from '../../shared/components/TextField/TextField';
 import Button from '../../shared/components/Button/Button';
 
+import { useSelector, shallowEqual } from 'react-redux';
+import { getLoading } from '../../redux/userAccount/userAccount-selectors';
+import Loader from '../../shared/components/Loader';
+
 import { initialState } from './initialState';
 
 import styles from './authForm.module.scss';
 
 const AuthForm = ({ onSubmit }) => {
+  const isLoading = useSelector(getLoading, shallowEqual);
   const [form, setForm] = useState({ ...initialState });
   const [type, setType] = useState('login');
 
@@ -30,47 +35,53 @@ const AuthForm = ({ onSubmit }) => {
   };
 
   return (
-    <div className={styles.wrapper}>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <p className={styles.text}>
-          Login to our app using e-mail and password:
-        </p>
-        <TextField
-          type={'email'}
-          value={form.email}
-          name={'email'}
-          placeholder={'E-mail'}
-          required={true}
-          onType={handleChange}
-          className={styles.TextField}
-        />
-        <TextField
-          type={'password'}
-          value={form.password}
-          name={'password'}
-          placeholder={'Password'}
-          required={true}
-          onType={handleChange}
-          className={styles.TextField}
-        />
-        <div className={styles.form__buttons}>
-          <Button
-            btnText={'Sign In '}
-            isActive={true}
-            type={'submit'}
-            className={styles.button}
-            onClickBtn={() => changeType('login')}
-          />
-          <Button
-            btnText={'Sign Up'}
-            isActive={false}
-            type={'submit'}
-            className={styles.button}
-            onClickBtn={() => changeType('register')}
-          />
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className={styles.wrapper}>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <p className={styles.text}>
+              Login to our app using e-mail and password:
+            </p>
+            <TextField
+              type={'email'}
+              value={form.email}
+              name={'email'}
+              placeholder={'E-mail'}
+              required={true}
+              onType={handleChange}
+              className={styles.TextField}
+            />
+            <TextField
+              type={'password'}
+              value={form.password}
+              name={'password'}
+              placeholder={'Password'}
+              required={true}
+              onType={handleChange}
+              className={styles.TextField}
+            />
+            <div className={styles.form__buttons}>
+              <Button
+                btnText={'Sign In '}
+                isActive={true}
+                type={'submit'}
+                className={styles.button}
+                onClickBtn={() => changeType('login')}
+              />
+              <Button
+                btnText={'Sign Up'}
+                isActive={false}
+                type={'submit'}
+                className={styles.button}
+                onClickBtn={() => changeType('register')}
+              />
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
+       )}
+    </>
   );
 };
 
