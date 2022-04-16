@@ -41,7 +41,7 @@ const renderCustomizedLabel = ({
 const Crujok = () => {
   return (
     <>
-      <PieChart width={300} height={300}>
+      <PieChart width={310} height={300}>
         <Pie
           data={data}
           cx={150}
@@ -73,7 +73,7 @@ const Results = () => {
           <p className={styles.text_answers}>Correct answers - 9 </p>
           <p>Total questions - 12</p>
         </div>
-        <picture>
+        <picture className={styles.picture}>
           <source
             media="(max-width: 719px)"
             src="./CatMobilex2.png  1x, ./CatMobilex2.png 2x"
