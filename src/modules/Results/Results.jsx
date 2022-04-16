@@ -1,9 +1,12 @@
 import styles from './results.module.scss';
 import Button from '../../shared/components/Button';
+import qaTestsAction from '../../redux/qaTests/qaTests-actions'
 
 import { PieChart, Pie, Cell } from 'recharts';
 import catPc from '../../images/results/catPcx.png';
 import catPc2x from '../../images/results/catPcx2.png';
+import {  useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const data = [
   { name: 'false answer', value: 3 },
@@ -41,7 +44,7 @@ const renderCustomizedLabel = ({
 const Crujok = () => {
   return (
     <>
-      <PieChart width={300} height={300}>
+      <PieChart width={310} height={300}>
         <Pie
           data={data}
           cx={150}
@@ -60,9 +63,20 @@ const Crujok = () => {
     </>
   );
 };
-const btnClick = () => {};
+
 
 const Results = () => {
+  const dispatch = useDispatch()
+
+  const navigate = useNavigate();
+  
+  const btnClick = () => {
+    dispatch(qaTestsAction('tech'))
+  return navigate("/test");
+  
+   
+  };
+  
   return (
     <div className="container">
       <div className={styles.wrapper_answer}>
@@ -73,7 +87,7 @@ const Results = () => {
           <p className={styles.text_answers}>Correct answers - 9 </p>
           <p>Total questions - 12</p>
         </div>
-        <picture>
+        <picture className={styles.picture}>
           <source
             media="(max-width: 719px)"
             src="./CatMobilex2.png  1x, ./CatMobilex2.png 2x"
