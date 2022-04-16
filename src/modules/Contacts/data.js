@@ -1,9 +1,9 @@
-import Karpeko from '../../images/contacts-card/picture/Karpeko.jpg';
-import Makarenko from '../../images/contacts-card/picture/Makarenko.jpg';
-import Goncharenko from '../../images/contacts-card/picture/Goncharenko.jpg';
-import Dykyi from '../../images/contacts-card/picture/Dykyi.png';
-import Pedchenko from '../../images/contacts-card/picture/Pedchenko_Yevhen.jpg';
-import Bendyk from '../../images/contacts-card/picture/Bendyk.jpg';
+import Karpeko from '../../images/contacts-card/Karpeko.jpg';
+import Makarenko from '../../images/contacts-card/Makarenko.jpg';
+import Goncharenko from '../../images/contacts-card/Goncharenko.jpg';
+import Dykyi from '../../images/contacts-card/Dykyi.jpg';
+import Pedchenko from '../../images/contacts-card/Pedchenko_Yevhen.jpg';
+import Bendyk from '../../images/contacts-card/Bendyk.jpg';
 
 const data = [
   {
