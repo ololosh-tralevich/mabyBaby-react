@@ -14,7 +14,7 @@ const getTest = createAsyncThunk(
     }
   );
 
-  const getResult = createAsyncThunk(
+  const getResults = createAsyncThunk(
     'test/getResult',
     async (answers, { rejectWithValue }) => {
       try {
@@ -26,7 +26,7 @@ const getTest = createAsyncThunk(
     }
   );
   
-  export const testOperations = {
+  export const qaOperations = {
     getTest,
-    getResult,
+    getResults,
   };

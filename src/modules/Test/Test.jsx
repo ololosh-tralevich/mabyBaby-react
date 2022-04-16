@@ -27,7 +27,7 @@ const Test = () => {
   if (!surveyTepes.includes(testType)) {
     return <Navigate to="/" />;
   }
-  
+   
     const onClickFinish = () => {
       
         if (questions?.length === answers?.length) {

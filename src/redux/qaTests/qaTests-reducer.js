@@ -1,12 +1,14 @@
 import { createReducer } from '@reduxjs/toolkit';
 
 import { createSlice } from '@reduxjs/toolkit';
+import testType from '../../redux/qaTests/qaTests-actions';
 
 import { qaOperations } from './qaTests-operations';
 
-const { setTestType,  getResults } = qaOperations;
+const { getResults } = qaOperations;
 
-const initialState = {  
+
+const initialState = {
   testResult: {
     mainMessage: '',
     result: '',
@@ -16,8 +18,8 @@ const initialState = {
   error: false,
 };
 
-export const testType = createReducer(null, {
-  [setTestType]: (state, { payload }) => {
+export const setTestType = createReducer(null, {
+  [testType]: (state, { payload }) => {
     return (state = payload);
   },
 });
@@ -25,12 +27,12 @@ export const testType = createReducer(null, {
 const qaSlice = createSlice({
   name: 'qaTests',
   initialState,
-  extraReducers: {    
+  extraReducers: {
     [getResults.pending]: state => {
       state.loading = true;
       state.error = false;
     },
-    [getResults.fulfilled]: (state, { payload }) => {      
+    [getResults.fulfilled]: (state, { payload }) => {
       state.testResult = { ...payload };
       state.loading = false;
     },
