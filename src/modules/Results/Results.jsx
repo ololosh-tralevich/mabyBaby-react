@@ -34,6 +34,8 @@ const renderCustomizedLabel = ({
       x={x}
       y={y}
       fill="white"
+      fontWeight='500'
+      fontSize='18px'
       textAnchor={x > cx ? 'start' : 'end'}
       dominantBaseline="central"
     >
@@ -51,7 +53,7 @@ const Crujok = () => {
           cy={150}
           labelLine={false}
           label={renderCustomizedLabel}
-          outerRadius={145}
+          outerRadius={120}
           fill="#8884d8"
           dataKey="value"
         >

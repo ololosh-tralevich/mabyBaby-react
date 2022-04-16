@@ -1,13 +1,12 @@
-@import "../../sass/main.scss";
+@import '../../sass/main.scss';
 %afterRules {
   content: ' ';
   position: absolute;
   display: block;
   background-color: #00122f;
-    opacity: 0.15;
-    border: 1px solid #00122F;
-} 
-
+  opacity: 0.15;
+  border: 1px solid #00122f;
+}
 
 .button {
   width: 190px;
@@ -17,53 +16,56 @@
   cursor: pointer;
   margin-bottom: 40px;
   color: white;
-  @include mq(tablet){
+  @include mq(tablet) {
     margin-bottom: 100px;
   }
-  @include mq(desktop){
+  @include mq(desktop) {
     margin-bottom: 65px;
   }
 }
 
+g:first-child {
+  text {
+    fill: black;
+  }
+}
+
 .image {
-  @include mq(tablet){
+  @include mq(tablet) {
     margin-bottom: 10px;
     margin-top: 30px;
     width: 285px;
     height: 285px;
-  
   }
   margin-bottom: 20px;
-    margin-top: 20px;
+  margin-top: 20px;
   display: flex;
   width: 156px;
   height: 156px;
-  
 }
-.answers{
+.answers {
   font-family: 'Montserrat';
-font-style: normal;
-font-weight: 700;
-font-size: 12px;
-line-height: 1,25;
-letter-spacing: 0.02em; 
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1, 25;
+  letter-spacing: 0.02em;
   margin-top: 20px;
-  
+
   color: #000000;
-  @include mq(tablet){
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 1,25;
-margin-top: 30px;
+  @include mq(tablet) {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1, 25;
+    margin-top: 30px;
   }
   display: flex;
   justify-content: center;
 }
-.wrapper_answer
-{
+.wrapper_answer {
   margin-top: 30px;
-  @include mq(tablet){
+  @include mq(tablet) {
     margin-top: 40px;
   }
   display: flex;
@@ -71,45 +73,41 @@ margin-top: 30px;
   align-items: center;
   justify-content: center;
 }
-.text{
+.text {
   margin-top: 10px;
   margin-bottom: 18px;
   font-family: 'Montserrat';
-font-style: normal;
-font-weight: 500;
-font-size: 10px;
-line-height: 1.2;
-text-align: center;
-letter-spacing: 0.02em;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.02em;
 
-
-  @include mq(tablet)
-  {
+  @include mq(tablet) {
     margin-bottom: 50px;
 
-font-size: 20px;
+    font-size: 20px;
 
-letter-spacing: 0.02em;
+    letter-spacing: 0.02em;
   }
 }
-.text_answers
-{
+.text_answers {
   position: relative;
   margin-right: 20px;
 
-&::after{
-  
+  &::after {
     @extend %afterRules;
     top: 10px;
     width: 20px;
     height: 0px;
-   right: -20px;  
-  transform: rotate(-90deg);
+    right: -20px;
+    transform: rotate(-90deg);
+  }
 }
-}
-.header{
+.header {
   margin-bottom: 12px;
-  @include mq(tablet){
+  @include mq(tablet) {
     margin-bottom: 8px;
   }
   font-family: 'Montserrat';
@@ -118,70 +116,67 @@ letter-spacing: 0.02em;
   font-size: 12px;
   line-height: 1.36;
 
-  
   text-align: center;
   letter-spacing: 0.02em;
-  @include mq(tablet){
+  @include mq(tablet) {
     font-family: 'Montserrat';
-font-style: normal;
-font-weight: 700;
-font-size: 22px;
-line-height: 1,3;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1, 3;
 
-text-align: center;
-letter-spacing: 0.02em;
+    text-align: center;
+    letter-spacing: 0.02em;
   }
 }
-.header__text{
+.header__text {
   position: relative;
   margin-bottom: 34px;
-  @include mq(tablet){
+  @include mq(tablet) {
     margin-bottom: 70px;
   }
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-size: 10px;
-  line-height: 1,2;
+  line-height: 1, 2;
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  @include mq(tablet){
+  @include mq(tablet) {
     font-family: 'Montserrat';
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 1,2;
-text-align: center;
-letter-spacing: 0.02em;
-text-transform: uppercase;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1, 2;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
   }
-&::after{
-
-  
+  &::after {
     @extend %afterRules;
 
     width: 130px;
     height: 0px;
-   right: -8px;  
-  opacity: 0.15;
-  top:34px;
-  @include mq(tablet){
-    width: 336px;
-   right: -80px;
-  
-  height: 0px;
-  
-  top:60px;
+    right: -8px;
+    opacity: 0.15;
+    top: 34px;
+    @include mq(tablet) {
+      width: 336px;
+      right: -80px;
+
+      height: 0px;
+
+      top: 60px;
+    }
+  }
 }
-}
-}
-.picture{
+.picture {
   margin-bottom: 20px;
   margin-top: 20px;
   width: 120px;
   height: 120px;
-  @include mq(tablet){
+  @include mq(tablet) {
     width: 176px;
     height: 176px;
   }
