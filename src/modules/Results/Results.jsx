@@ -1,11 +1,11 @@
 import styles from './results.module.scss';
 import Button from '../../shared/components/Button';
-import qaTestsAction from '../../redux/qaTests/qaTests-actions'
+import qaTestsAction from '../../redux/qaTests/qaTests-actions';
 
 import { PieChart, Pie, Cell } from 'recharts';
 import catPc from '../../images/results/catPcx.png';
 import catPc2x from '../../images/results/catPcx2.png';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 const data = [
@@ -34,8 +34,8 @@ const renderCustomizedLabel = ({
       x={x}
       y={y}
       fill="white"
-      fontWeight='500'
-      fontSize='18px'
+      fontWeight="500"
+      fontSize="18px"
       textAnchor={x > cx ? 'start' : 'end'}
       dominantBaseline="central"
     >
@@ -66,19 +66,16 @@ const Crujok = () => {
   );
 };
 
-
 const Results = () => {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch();
 
-  const navigate = useNavigate();
-  
-  const btnClick = () => {
-    dispatch(qaTestsAction('tech'))
-  return navigate("/test");
-  
-   
-  };
-  
+  // const navigate = useNavigate();
+
+  // const btnClick = () => {
+  //   dispatch(qaTestsAction('tech'));
+  //   return navigate('/test');
+  // };
+
   return (
     <div className="container">
       <div className={styles.wrapper_answer}>
@@ -101,13 +98,14 @@ const Results = () => {
         <p className={styles.text}>
           But you still need to learn some materials.
         </p>
-        <Button
+        {/* <Button
           btnText="Try again"
           type="button"
           onClickBtn={btnClick}
           className={styles.button}
           isActive={true}
-        ></Button>
+        ></Button> */}
+        <Link className={styles.button} to='/test'>Try again</Link>
       </div>
     </div>
   );
