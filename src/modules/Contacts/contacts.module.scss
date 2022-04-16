@@ -1,7 +1,6 @@
 @import "../../sass/main.scss";
 
 .section {
-background-color: #E5E5E5;
 padding-top: 42px;
 padding-bottom: 114px;
 
@@ -60,7 +59,7 @@ padding-bottom: 114px;
         }
         
         @include mq(desktop) {
-            grid-template-columns: repeat(3, 280px);
+            grid-template-columns: repeat(3, 315px);
             grid-row-gap: 30px;
             grid-gap: 40px;
         }

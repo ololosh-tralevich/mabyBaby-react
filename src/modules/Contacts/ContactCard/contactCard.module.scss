@@ -12,28 +12,32 @@
 
     @include mq(tablet) {
         width: 336px;
-    }
+     }
         
     @include mq(desktop) {
-        width: 280px;
+        width: 315px;
     }
 
     &:hover {
         transform: scale(1.03);
-        cursor: pointer;        
+        // cursor: pointer;        
 }}
 
 .foto {
     width: 280px;
+    object-fit: cover;
+    height: 350px;
     overflow: hidden;
     padding-bottom: 20px;
     transition: transform 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
     @include mq(tablet) {
         width: 336px;
+        height: 415px;
     }
     
     @include mq(desktop) {
-        width: 280px;
+        width: 315px;
+        height: 400px;
     }
  }
 
@@ -61,17 +65,13 @@
 }
 
 .location {
-    display: flex;
+    display: flex;    
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.1;
     letter-spacing: 0.02em;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #555555;
-    &__:hover,
-    &__:focus {
-        color: #000000;
-    }   
 }
 
 .link {
@@ -81,11 +81,18 @@
     -webkit-transition: color .25s cubic-bezier(0.4, 0, 0.2, 1);
     transition: color .25s cubic-bezier(0.4, 0, 0.2, 1);
     color: #555555;
-
-        &__:hover,
-        &__:focus {
-            color: #000000;
-    }
 }
 
+.link:hover,
+.link:focus {
+    color: #FF6B09;
+}
 
+.itemLocat {
+    margin-right: 5px;
+}
+
+.link:hover .itemLocat,
+.link:focus .itemLocat {
+    fill: #FF6B09;
+}

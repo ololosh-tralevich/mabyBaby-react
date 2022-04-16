@@ -3,7 +3,6 @@ import ContactCard from './ContactCard/ContactCard';
 import styles from './contacts.module.scss';
 
 const Contacts = () => {
-  console.log(contacts);
   const element = contacts.map(contact => (
     <ContactCard key={contact.id} {...contact} />
   ));
