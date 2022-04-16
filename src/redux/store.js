@@ -14,7 +14,7 @@ import storage from 'redux-persist/lib/storage';
 
 import userReducer from './userAccount/userAccount-slice';
 import qaReducer from './qaTests/qaTests-reducer';
-import {testType} from './qaTests/qaTests-reducer';
+import {setTestType} from './qaTests/qaTests-reducer';
 
 const persistConfig = {
   key: 'auth',
@@ -26,8 +26,8 @@ const persistedUserReducer = persistReducer(persistConfig, userReducer);
 
 export const store = configureStore({
   reducer: {
-    auth: persistedUserReducer,
-    testType: testType,
+    auth: persistedUserReducer, 
+    testType: setTestType,  
     qaTests: qaReducer,
   },
   middleware: getDefaultMiddleware =>
