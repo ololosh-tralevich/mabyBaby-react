@@ -5,18 +5,19 @@
 }
 
 body {
-  position: relative;
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
-  font-family: var(--main-font);
   margin: 0;
+  font-family: var(--main-font);
 }
 
 div#root {
+  min-height: 100vh;
   background-color: var(--main-backgr-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 img {
