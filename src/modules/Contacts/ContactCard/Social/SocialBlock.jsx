@@ -1,7 +1,7 @@
-import Linkedin from './SocialLogoComp/Linkedin';
-import GitHubItem from './SocialLogoComp/GitHubItem';
-import TeleGram from './SocialLogoComp/TeleGram';
-import GoogleMail from './SocialLogoComp/GoogleMail';
+import Linkedin from './SocialLogos/Linkedin';
+import GitHubItem from './SocialLogos/GitHubItem';
+import TeleGram from './SocialLogos/TeleGram';
+import GoogleMail from './SocialLogos/GoogleMail';
 import styles from './socialBlock.module.css';
 
 const SocialBlock = ({ social: { linkedin, github, telegram, google } }) => {

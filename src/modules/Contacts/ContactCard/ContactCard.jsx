@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Location from './Location/Location';
+import Location from './Social/SocialLogos/Location';
 import SocialBlock from './Social/SocialBlock';
 import styles from './contactCard.module.scss';
 
