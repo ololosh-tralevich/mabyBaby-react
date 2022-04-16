@@ -1,12 +1,11 @@
 import styles from './results.module.scss';
-import Button from '../../shared/components/Button';
-import qaTestsAction from '../../redux/qaTests/qaTests-actions'
 
 import { PieChart, Pie, Cell } from 'recharts';
 import catPc from '../../images/results/catPcx.png';
 import catPc2x from '../../images/results/catPcx2.png';
-import {  useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import {getTestType} from '../../redux/qaTests/qaTests-selectors'
+import { useSelector, shallowEqual } from 'react-redux';
 
 const data = [
   { name: 'false answer', value: 3 },
@@ -34,8 +33,8 @@ const renderCustomizedLabel = ({
       x={x}
       y={y}
       fill="white"
-      fontWeight='500'
-      fontSize='18px'
+      fontWeight="500"
+      fontSize="18px"
       textAnchor={x > cx ? 'start' : 'end'}
       dominantBaseline="central"
     >
@@ -66,24 +65,15 @@ const Crujok = () => {
   );
 };
 
-
 const Results = () => {
-  const dispatch = useDispatch()
+  const testType = useSelector(getTestType, shallowEqual)
+  // console.log(testType)
 
-  const navigate = useNavigate();
-  
-  const btnClick = () => {
-    dispatch(qaTestsAction('tech'))
-  return navigate("/test");
-  
-   
-  };
-  
   return (
     <div className="container">
       <div className={styles.wrapper_answer}>
         <h1 className={styles.header}>Results</h1>
-        <p className={styles.header__text}>[ Testing theory_]</p>
+        <p className={styles.header__text}>{`[ Testing ${testType}_]`}</p>
         {Crujok()}
         <div className={styles.answers}>
           <p className={styles.text_answers}>Correct answers - 9 </p>
@@ -101,13 +91,7 @@ const Results = () => {
         <p className={styles.text}>
           But you still need to learn some materials.
         </p>
-        <Button
-          btnText="Try again"
-          type="button"
-          onClickBtn={btnClick}
-          className={styles.button}
-          isActive={true}
-        ></Button>
+        <Link className={styles.tryAgainBtn} to='/test'>Try again</Link>
       </div>
     </div>
   );

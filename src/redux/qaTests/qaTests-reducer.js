@@ -7,7 +7,6 @@ import { qaOperations } from './qaTests-operations';
 
 const { getResults } = qaOperations;
 
-
 const initialState = {
   testResult: {
     mainMessage: '',
