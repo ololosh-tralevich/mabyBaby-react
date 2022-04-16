@@ -18,9 +18,8 @@ const loginUser = async userData => {
 };
 
 const logoutUser = async () => {
-  const { data: result } = await axios.post('/auth/logout');
-  // console.log('Logout: ', result);
-  return result;
+  const  data = await axios.post('/auth/logout');
+  return data;
 };
 
 // Google auth??

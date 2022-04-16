@@ -9,7 +9,7 @@ const InfoList = ({ infoList, listTitle } ) => {
 
     const elements = infoList.map(item => (
         <li className={s.info__item} key={nanoid()}>
-            <a href={item.link} rel="noreferrer" target="_blank">{item.content}</a>
+            <a className={s.a} href={item.link} rel="noreferrer" target="_blank">{item.content}</a>
         </li>
     ));       
 

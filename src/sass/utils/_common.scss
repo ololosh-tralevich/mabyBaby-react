@@ -5,6 +5,7 @@
 }
 
 body {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -41,8 +42,8 @@ a {
   color: var(--main-text-color);
 }
 
-ol[class],
-ul[class] {
+ol,
+ul {
   list-style: none;
 }
 

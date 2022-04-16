@@ -14,6 +14,7 @@ const Home = () => {
   };
 
   return (
+    <main>
     <section className="container">
       <div className={styles.mainBlock}>
         <h2 className={styles.firstTitle}>
@@ -42,9 +43,10 @@ const Home = () => {
             Testing theory
             <ArrowRight className={styles.arrowRight} color={'white'} />
           </Link>
-        </div>
-      </div>
-    </section>
+        </div>        
+       </div>
+     </section>
+    </main>
   );
 };
 
