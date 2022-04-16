@@ -9,7 +9,7 @@
   @include mq(tablet){
     margin-bottom: 100px;
   }
-  @include mq(destop){
+  @include mq(desktop){
     margin-bottom: 60px;
   }
 }
