@@ -29,13 +29,13 @@
   &::after {
     position: absolute;
     display: block;
-    content: ' ';
+    content: '';
     top: 90px;
     left: 50%;
     transform: translateX(-50%);
     width: 130px;
-    height: 2px;
     opacity: 0.15;
+    border: 1px solid #00122f;
     background-color: #00122f;
     @include mq(tablet) {
       width: 322px;

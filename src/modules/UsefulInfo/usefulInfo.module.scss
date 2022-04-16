@@ -1,7 +1,7 @@
 @import '../../sass/main.scss';
 
 %afterRules {
-  content: ' ';
+  content: '';
   position: absolute;
   display: block;
   background-color: #00122f;
@@ -122,8 +122,8 @@
     @extend %afterRules;
     top: 54px;
     width: 150px;
-    height: 2px;
     opacity: 0.15;
+    border: 0.5px solid #00122f;
   }
 
   @include mq(mobile-only) {
@@ -139,8 +139,8 @@
       @extend %afterRules;
       top: 54px;
       width: 336px;
-      height: 2px;
       opacity: 0.15;
+      border: 0.5px solid #00122f;
     }
   }
 }

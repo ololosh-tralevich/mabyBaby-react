@@ -66,12 +66,12 @@
   &:after {
     position: absolute;
     display: block;
-    content: ' ';
+    content: '';
     top: 20px;
     right: 50%;
     transform: translateX(50%);
     width: 80px;
-    height: 2px;
+    border: 1px solid var(--first-orange-color);
     background-color: var(--first-orange-color);
   }
 }

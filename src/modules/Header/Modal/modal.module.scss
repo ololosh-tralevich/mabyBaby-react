@@ -33,12 +33,12 @@
   &::after {
     position: absolute;
     display: block;
-    content: ' ';
+    content: '';
     top: 47px;
     left: 50%;
     transform: translateX(-50%);
     width: 70px;
-    height: 2px;
+    border: 1px solid #ff6b09;
     background-color: #ff6b09;
   }
 }
