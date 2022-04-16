@@ -1,10 +1,12 @@
 import styles from './results.module.scss';
 import Button from '../../shared/components/Button';
+import qaTestsAction from '../../redux/qaTests/qaTests-actions'
 
 import { PieChart, Pie, Cell } from 'recharts';
 import catPc from '../../images/results/catPcx.png';
 import catPc2x from '../../images/results/catPcx2.png';
-import { useLocation, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const data = [
   { name: 'false answer', value: 3 },
@@ -64,10 +66,12 @@ const Crujok = () => {
 
 
 const Results = () => {
+  const dispatch = useDispatch()
+
   const navigate = useNavigate();
   
   const btnClick = () => {
-  
+    dispatch(qaTestsAction('tech'))
   return navigate("/test");
   
    
