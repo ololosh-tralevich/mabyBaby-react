@@ -10,6 +10,9 @@ body {
   text-rendering: optimizeSpeed;
   margin: 0;
   font-family: var(--main-font);
+  &::-webkit-scrollbar {
+    display: none;   // скрывает скроллбар со страницы
+  }
 }
 
 div#root {
