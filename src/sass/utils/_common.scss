@@ -20,7 +20,10 @@ div#root {
   background-color: var(--main-backgr-color);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+}
+
+main {
+  flex-grow: 1;
 }
 
 img {
@@ -46,7 +49,7 @@ a {
   color: var(--main-text-color);
 }
 
-ol,
+// ol,  // используеться на странице Materials
 ul {
   list-style: none;
 }
