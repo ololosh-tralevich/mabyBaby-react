@@ -5,8 +5,8 @@ const getTest = async (type) => {
   return data;
 };
 
-const getResult = async ({answersObj, type}) => {
-  const { data: result } = await axios.post('/qa-test/'+type+'-results', answersObj);  
+const getResult = async ({answers, type}) => {
+  const { data: result } = await axios.post('/qa-test/'+type+'-results', {answers});  
   return result;
 };
 

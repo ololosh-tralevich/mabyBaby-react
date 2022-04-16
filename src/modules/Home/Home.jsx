@@ -18,10 +18,9 @@ const Home = () => {
       <div className={styles.mainBlock}>
         <h2 className={styles.firstTitle}>
           “Regression testing. What is it?
-          <br /> If the system compiles, that's good, if it boots, that's
+          <br /> If the system compiles, that's good, if it boots, that's<br/>
           great!”
         </h2>
-        <div className={styles.horizontalLine}></div>
         <h3 className={styles.secondTitle}>Linus Torvalds</h3>
         <h4 className={styles.thirdTitle}>
           Linux kernel creator, hacker, 1969

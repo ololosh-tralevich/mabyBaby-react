@@ -1,7 +1,21 @@
+import {useDispatch} from 'react-redux'
+
+import {userOperations} from '../../redux/userAccount/userAccount-operations'
+
 import AuthForm from '../../modules/AuthForm/AuthForm';
 import styles from './auth-page.module.scss'
 
 const AuthPage = () => {
+  const dispatch = useDispatch()
+
+  const auth = (form, type = 'login') => {
+    if(type === 'register'){
+      dispatch(userOperations.registerUser(form));
+      return;
+    }
+    dispatch(userOperations.loginUser(form))
+  }
+
   return (
     <main>
     <div className='container'>
@@ -15,7 +29,7 @@ const AuthPage = () => {
         diverse_<span className={styles.text_span}> ]</span>
       </p>
       </div>
-      <AuthForm />
+      <AuthForm onSubmit={auth}/>
       </div>
     </div>
     </main>

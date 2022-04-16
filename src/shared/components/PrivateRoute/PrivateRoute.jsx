@@ -1,11 +1,16 @@
-import {Outlet, Navigate} from 'react-router-dom';
+import { Outlet, Navigate } from 'react-router-dom';
+
+import { shallowEqual, useSelector } from 'react-redux';
+
+import { getIsLogin } from '../../../redux/userAccount/userAccount-selectors';
 
 const PrivateRoute = () => {
-    //  if (!isLogin) {
-    //     return <Navigate to='auth'/>
-    // }
+  const isLogin = useSelector(getIsLogin, shallowEqual);
+  if (!isLogin) {
+    return <Navigate to="auth" />;
+  }
 
-    return <Outlet/>
-}
+  return <Outlet />;
+};
 
 export default PrivateRoute;

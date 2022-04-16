@@ -1,2 +1,3 @@
-export const getTestType = ({test}) => test.type;
-export const getTestResults = ({test}) => test.results;
+export const getGlobalState = state => state;
+export const getTestsArr = state => state.qaTests.questionsArr;
+export const getTestType = state => state.testType;

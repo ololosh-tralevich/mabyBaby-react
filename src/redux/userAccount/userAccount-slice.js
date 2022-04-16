@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { userOperations } from './userAccount-operations';
 
-const { registerUser, loginUser, logoutUser, refreshUser, getUserInfo } =
+const { registerUser, loginUser, logoutUser, getCurrentUser } =
   userOperations;
 
 const initialState = {
@@ -11,8 +11,6 @@ const initialState = {
     id: '',
   },
   accessToken: '',
-  refreshToken: '',
-  sessionId: '',
   isUserLogin: false,
   loading: false,
   error: null,
@@ -24,10 +22,9 @@ const userSlice = createSlice({
   extraReducers: {
     [registerUser.pending]: state => {
       state.loading = true;
-      state.error = false;
+      state.error = null;
     },
     [registerUser.fulfilled]: (state, { payload }) => {
-      console.log(payload);
       state.user = { ...payload };
       state.isUserLogin = true;
       state.loading = false;
@@ -39,13 +36,11 @@ const userSlice = createSlice({
 
     [loginUser.pending]: state => {
       state.loading = true;
-      state.error = false;
+      state.error = null;
     },
     [loginUser.fulfilled]: (state, { payload }) => {
       state.user = { ...payload.userData };
       state.accessToken = payload.accessToken;
-      state.refreshToken = payload.refreshToken;
-      state.sessionId = payload.sid;
       state.isUserLogin = true;
       state.loading = false;
     },
@@ -56,13 +51,11 @@ const userSlice = createSlice({
 
     [logoutUser.pending]: state => {
       state.loading = true;
-      state.error = false;
+      state.error = null;
     },
     [logoutUser.fulfilled]: state => {
       state.user = { email: '', id: '' };
       state.accessToken = '';
-      state.refreshToken = '';
-      state.sessionId = '';
       state.isUserLogin = false;
       state.loading = false;
     },
@@ -71,31 +64,16 @@ const userSlice = createSlice({
       state.error = true;
     },
 
-    [refreshUser.pending]: state => {
+    [getCurrentUser.pending]: state => {
       state.loading = true;
-      state.error = false;
+      state.error = null;
     },
-    [refreshUser.fulfilled]: (state, { payload }) => {
-      state.accessToken = payload.newAccessToken;
-      state.refreshToken = payload.newRefreshToken;
-      state.sessionId = payload.newSid;
-      state.loading = false;
-    },
-    [refreshUser.rejected]: state => {
-      state.loading = false;
-      state.error = true;
-    },
-
-    [getUserInfo.pending]: state => {
-      state.loading = true;
-      state.error = false;
-    },
-    [getUserInfo.fulfilled]: (state, { payload }) => {
+    [getCurrentUser.fulfilled]: (state, { payload }) => {
       state.user.email = payload.email;
       state.isUserLogin = true;
       state.loading = false;
     },
-    [getUserInfo.rejected]: state => {
+    [getCurrentUser.rejected]: state => {
       state.loading = false;
       state.error = true;
     },

@@ -36,6 +36,7 @@
 }
 
 .text_wrapper{
+    margin-bottom: 30px;
     @include mq(tablet){
         width: 540px;
         margin-bottom: 40px;
