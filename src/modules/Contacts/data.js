@@ -80,7 +80,7 @@ const data = [
       linkedin: 'https://www.linkedin.com',
       github: 'https://github.com/wolodwolod',
       telegram: 'https://t.me/Wolodymyr_B',
-      google: '',
+      google: 'mailto:vvbendyk@gmail.com',
     },
     location: 'Kyiv',
   },
