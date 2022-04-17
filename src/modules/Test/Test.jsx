@@ -22,9 +22,10 @@ const Test = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  
 
   useEffect(    
-    () =>{
+    () =>{      
            const localQuestions = localStorage.getItem('questions');
       if (localQuestions && JSON.parse(localQuestions).length) {
         setQuestions({items:JSON.parse(localQuestions), loading:false, error:null})
