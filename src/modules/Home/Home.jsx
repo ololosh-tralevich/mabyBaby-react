@@ -1,3 +1,4 @@
+import { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -9,12 +10,16 @@ import styles from './home.module.scss';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const setType = type => {
+  const setType = useCallback(type => {
     dispatch(testType(type));
-  };
-  localStorage.removeItem('testAnswers');
-  localStorage.removeItem('questions');
-
+  }, [dispatch]);
+  useEffect(()=>{
+    localStorage.removeItem('testAnswers');
+    localStorage.removeItem('questions');
+    setType({ testType: '' })
+  
+  }, [setType])
+  
   return (
     <main>
       <section className="container">

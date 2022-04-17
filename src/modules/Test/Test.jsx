@@ -26,10 +26,11 @@ const Test = () => {
 
   useEffect(    
     () =>{      
-           const localQuestions = localStorage.getItem('questions');
+           const localQuestions = localStorage.getItem('questions');           
       if (localQuestions && JSON.parse(localQuestions).length) {
+        console.log(localStorage.getItem('testAnswers'))
         setQuestions({items:JSON.parse(localQuestions), loading:false, error:null})
-        const saveAnswers = JSON.parse(localStorage.getItem('testAnswers'))
+        const saveAnswers = JSON.parse(localStorage.getItem('testAnswers'))??{answers:[], currentQuestion:0}
         setAnswers(saveAnswers.answers??[])
         setCurrentQuestion(saveAnswers.currentQuestion??0)
       }  else {
