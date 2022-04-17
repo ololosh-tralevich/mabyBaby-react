@@ -14,6 +14,7 @@ const initialState = {
   isUserLogin: false,
   loading: false,
   error: null,
+  refreshError: null
 };
 
 const userSlice = createSlice({
@@ -66,7 +67,7 @@ const userSlice = createSlice({
 
     [getCurrentUser.pending]: state => {
       state.loading = true;
-      state.error = null;
+      state.refreshError = null;
     },
     [getCurrentUser.fulfilled]: (state, { payload }) => {
       state.user.email = payload.email;
@@ -75,7 +76,7 @@ const userSlice = createSlice({
     },
     [getCurrentUser.rejected]: state => {
       state.loading = false;
-      state.error = true;
+      state.refreshError = true;
     },
   },
 });
