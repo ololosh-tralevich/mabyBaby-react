@@ -22,12 +22,19 @@ const persistConfig = {
   whitelist: ['accessToken'], 
 };
 
+const persistTypeConfig = {
+  key:'testType',
+  storage,
+}
+
 const persistedUserReducer = persistReducer(persistConfig, userReducer);
+
+const persistTypeReducer = persistReducer(persistTypeConfig, setTestType)
 
 export const store = configureStore({
   reducer: {
     auth: persistedUserReducer, 
-    testType: setTestType,  
+    testType: persistTypeReducer,  
     qaTests: qaReducer,
   },
   middleware: getDefaultMiddleware =>
