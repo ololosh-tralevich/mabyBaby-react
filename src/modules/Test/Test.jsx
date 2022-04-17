@@ -125,7 +125,7 @@ const Test = () => {
     <main>
     <div className={styles.test}>
       <div className={styles.test_title}>
-        <h2>{'[Testing ' + testType + ']'}</h2>
+        <h2>[Testing<br/>{testType}_]</h2>
         <Button
           btnText="Finish Test"
           type="button"
