@@ -28,7 +28,7 @@ const Home = () => {
         </h4>
         <div className={styles.linkBlock}>
           <Link
-            onClick={() => setType('tech')}
+            onClick={() => setType({'testType':'tech'})}
             className={styles.testLink}
             to="test"
           >
@@ -36,7 +36,7 @@ const Home = () => {
             <ArrowRight className={styles.arrowRight} color={'white'} />
           </Link>
           <Link
-            onClick={() => setType('theory')}
+            onClick={() => setType({'testType':'theory'})}
             className={styles.testLink}
             to="test"
           >

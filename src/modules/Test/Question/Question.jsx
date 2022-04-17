@@ -22,6 +22,7 @@ const Question = ({
       </label>
     );
   });
+
   return (
     <div className={styles.answers}>
       <p className={styles.answers_title}>{question}</p>

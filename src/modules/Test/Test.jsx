@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 
@@ -10,21 +10,36 @@ import { qaOperations } from '../../redux/qaTests/qaTests-operations';
 
 import Button from 'shared/components/Button';
 import Question from './Question';
+import Loader from 'shared/components/Loader';
 import styles from './test.module.scss';
 
 const surveyTepes = ['tech', 'theory'];
 const Test = () => {
   const testType = useSelector(getTestType, shallowEqual);
-  const [questions, setQuestions] = useState([]);
+  const [questions, setQuestions] = useState({items:[],
+  loading:true, error:null});
   const [answers, setAnswers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  useEffect(
-    () =>
-      !testType || dispatch(qaOperations.getTest(testType)).then(({ payload }) =>
-        setQuestions(payload.data)
-      ),
+  useEffect(    
+    () =>{
+           const localQuestions = localStorage.getItem('questions');
+      if (localQuestions && JSON.parse(localQuestions).length) {
+        setQuestions({items:JSON.parse(localQuestions), loading:false, error:null})
+        const saveAnswers = JSON.parse(localStorage.getItem('testAnswers'))
+        setAnswers(saveAnswers.answers??[])
+        setCurrentQuestion(saveAnswers.currentQuestion??0)
+      }  else {
+        !testType || dispatch(qaOperations.getTest(testType)).then(({ payload }) =>{
+          setQuestions({items:payload.data, loading:false, error:null})
+          localStorage.setItem('questions', JSON.stringify(payload.data))
+          localStorage.removeItem('testAnswers')}
+        ).catch(error=>setQuestions({items:[], loading:false, error}))
+      }
+    }
+      ,
     [dispatch, testType]
   );
 
@@ -33,19 +48,20 @@ const Test = () => {
   }
 
   const onClickFinish = () => {
-    if (questions?.length === answers?.length) {
+    if (questions.items?.length === answers?.length) {
       dispatch(qaOperations.getResults({ answers, type: testType })).then(
         result => {
           return result;
         }
       );
-      return <Navigate to="/results" />;
+      return navigate("/results" );
     }
-    return <Navigate to="/" />;
+    return navigate('/');
   };
 
-  if (!questions?.length) {
+  if (!questions.items?.length) {
     return (
+      <main>
       <div className="{styles.test} container">
         <div>
           <h2>{'[Testing ' + testType + ']'}</h2>
@@ -54,24 +70,29 @@ const Test = () => {
             type="button"
             isActive={true}
             onClickBtn={onClickFinish}
-            className="btn"
+            className={styles.test_title_btn}
           />
         </div>
-        <p className={styles.error}>Sorry, couldn't get questions.</p>
+        {!questions.loading &&(<p className={styles.error}>Sorry, couldn't get questions.</p>)}
       </div>
+      {questions.loading && <Loader />}
+      </main>
     );
   }
 
   const onChangeAnswer = ({ questionId, answer }) => {
-    const index = questions.findIndex(e => e.questionId === questionId);
+    const index = questions.items.findIndex(e => e.questionId === questionId);
 
     setAnswers(prevState => {
       if (index === -1) {
-        return [...prevState, { questionId, answer }];
+        const newAnswers = [...prevState, { questionId, answer }];
+        localStorage.setItem('testAnswers',JSON.stringify({answers:newAnswers, currentQuestion}))
+        return newAnswers;
       }
-      const copyState = [...prevState];
-      copyState[index] = { questionId, answer };
-      return copyState;
+      const newAnswers = [...prevState];
+      newAnswers[index] = { questionId, answer };
+      localStorage.setItem('testAnswers',JSON.stringify({answers:newAnswers, currentQuestion}))
+      return newAnswers;
     });
   };
 
@@ -86,7 +107,7 @@ const Test = () => {
 
   const onClickNext = () => {
     setCurrentQuestion(prevState => {
-      if (prevState < questions.length - 1) {
+      if (prevState < questions.items.length - 1) {
         return prevState + 1;
       }
       return prevState;
@@ -94,6 +115,7 @@ const Test = () => {
   };
 
   return (
+    <main>
     <div className={styles.test}>
       <div className={styles.test_title}>
         <h2>{'[Testing ' + testType + ']'}</h2>
@@ -105,36 +127,40 @@ const Test = () => {
           className={styles.test_title_btn}
         />
       </div>
-      <div className={styles.test_question}>
+      {Boolean(questions.items?.length)&&<div className={styles.test_question}>       
         <p className={styles.test_question_title}>
           Question{' '}
           <span className={styles.test_curent}>{currentQuestion + 1}</span> /{' '}
-          {questions.length}{' '}
+          {questions.items.length}{' '}
         </p>
 
         <Question
-          question={questions[currentQuestion]}
+          question={questions.items[currentQuestion]}
           onChange={onChangeAnswer}
           selectedAnswers={answers}
         />
       </div>
+        }
+      
       <div className={styles.test_navigate}>
         <Button
-          btnText="Previous question"
+          btnText=""
           type="button"
           isActive={true}
           onClickBtn={onClickPrevious}
-          className={styles.test_navigate_btn}
+          className={styles.test_navigate_btn_prev}
         />
         <Button
-          btnText="Next question"
+          btnText=""
           type="button"
           isActive={true}
           onClickBtn={onClickNext}
-          className={styles.test_navigate_btn}
+          className={styles.test_navigate_btn_next}
         />
       </div>
     </div>
+    {questions.loading && <Loader />}
+    </main>
   );
 };
 
