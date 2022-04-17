@@ -41,7 +41,7 @@ const AuthPage = () => {
                   more diverse_<span className={styles.text_span}> ]</span>
                 </p>
                 {!error || (
-                  <h2 className={styles.errorNotice}>Wrong data. Try again</h2>
+                  <h2 className={styles.errorNotice}>Wrong data, try again</h2>
                 )}
               </div>
               <AuthForm onSubmit={auth} />
