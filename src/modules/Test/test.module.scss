@@ -25,10 +25,16 @@
       min-width: 130px;
       font-size: 10px;
       padding: 17px 14px;
+      color: #fff;
       background-color: #ff6b09;
+      border-width:0;
       @include mq(tablet) {
         font-size: 14px;
         min-width: 180px;
+      }
+      transition: all 200ms ease;
+      &:hover{
+        box-shadow: 0px 4px 15px rgba(255, 107, 9, 0.445);
       }
     }
   }
@@ -43,7 +49,8 @@
     margin-bottom: 20px;
     width: 100%;
     min-height: 450px;
-    background-color: #fff;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
     &_title {
       margin-bottom: 10px;
       font-family: 'Montserrat';
@@ -63,8 +70,8 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    &_btn {      
-      &_prev {
+    &_btn {   
+      &_prev, &_next {
         padding: 0px 10px;
         min-height: 35px;
       width: 55px;
@@ -73,11 +80,14 @@
         line-height: 1.1;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
         letter-spacing: 0.02em;
+        border-width:0;
       @include mq(tablet) {
         min-width: 210px;        
-      }
+      }      
+      }   
+      &_prev {        
         color: #fff;
         background-color: #ff6b09;
         &::before {
@@ -91,21 +101,16 @@
             display: block;
           }        
         }
+        transition: all 200ms ease;
+      &:hover{
+        box-shadow: 0px 4px 15px rgba(255, 107, 9, 0.445);
       }
-      &_next {
-        padding: 0px 10px;
-        min-height: 35px;
-      width: 55px;
-      font-family: 'Montserrat Medium';
-        font-size: 12px;
-        line-height: 1.1;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        letter-spacing: 0.02em;
-      @include mq(tablet) {
-        min-width: 210px;        
+      &:active {        
+        transform: translateX(-4px);
       }
+      }
+      &_next {   
+        background-color: #fff;     
       &::before{
         display: none;
         content:'Next question';
@@ -116,6 +121,13 @@
       &::after{
         content: '→';
         font-size: 26px;
+      }
+      transition: all 200ms ease;
+      &:hover{
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+      }
+      &:active {        
+        transform: translateX(4px);
       }
       }
     }

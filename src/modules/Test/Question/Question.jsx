@@ -6,29 +6,38 @@ const Question = ({
   onChange,
   selectedAnswers,
 }) => {
-  const answersRadio = answers.map((answer, index) => {
+  const answersRadio = answers.map((answer, index) => {    
     return (
       <label className={styles.answers_form_label} key={index}>
         <input
           className={styles.answers_form_radio}
+          id={questionId}
           type="radio"
           name="answers"
           value={answer}
-          required={false}          
-          checked={selectedAnswers.find(e=>(e.answer === answer)&&(e.questionId === questionId))}
-          onChange={() => onChange({ questionId, answer })}
+          required={false}   
+          onChange={onChange}      
+          checked={Boolean(selectedAnswers.find(
+            e => e?.answer === answer && String(e?.questionId) === String(questionId)
+          ))}
         />{' '}
         {answer}
       </label>
     );
   });
-
+  const size =
+    (question?.length < 30 && styles.answers_title_size_large) ||
+    (question?.length < 60 && styles.answers_title_size_medium) ||
+    styles.answers_title_size_small;
   return (
     <div className={styles.answers}>
-      <p className={styles.answers_title}>{question}</p>
-      <form className={styles.answers_form} name="answer_form">
+      <p className={`${styles.answers_title} ${size}`}>{question}</p>
+      <div
+        className={styles.answers_form}       
+        name="answer_form"
+      >
         {answersRadio}
-      </form>
+      </div>
     </div>
   );
 };

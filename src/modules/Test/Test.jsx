@@ -84,18 +84,21 @@ const Test = () => {
     );
   }
 
-  const onChangeAnswer = ({ questionId, answer }) => {
-    const index = questions.items.findIndex(e => e.questionId === questionId);
+  const onChangeAnswer = ({target:{ id:questionId, value:answer}}) => {    
+    console.log(questions)
+    const index = answers.findIndex(e => String(e.questionId) === String(questionId));
 
     setAnswers(prevState => {
       if (index === -1) {
         const newAnswers = [...prevState, { questionId, answer }];
         localStorage.setItem('testAnswers',JSON.stringify({answers:newAnswers, currentQuestion}))
+        console.log(newAnswers)
         return newAnswers;
       }
       const newAnswers = [...prevState];
       newAnswers[index] = { questionId, answer };
       localStorage.setItem('testAnswers',JSON.stringify({answers:newAnswers, currentQuestion}))
+      console.log(newAnswers)
       return newAnswers;
     });
   };
