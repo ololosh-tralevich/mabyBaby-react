@@ -13,7 +13,7 @@
   &_title {
     font-family: 'Montserrat';
     font-style: normal;
-    font-weight: 700;    
+    font-weight: 700;
     text-align: center;
     letter-spacing: 0.02em;
     margin-bottom: 25px;
@@ -21,7 +21,7 @@
       font-size: 22px;
       line-height: 1.4;
     }
-   
+
     &::after {
       position: relative;
       display: block;
@@ -34,34 +34,32 @@
       opacity: 0.15;
       background-color: #00122f;
     }
-    &_size{
-      &_small{
+    &_size {
+      &_small {
         font-size: 10px;
-    line-height: 1.2;
+        line-height: 1.2;
         @include mq(tablet) {
           font-size: 16px;
           line-height: 1.4;
         }
       }
-      &_medium{
+      &_medium {
         font-size: 12px;
-    line-height: 1.5;
+        line-height: 1.5;
         @include mq(tablet) {
           font-size: 20px;
           line-height: 1.4;
         }
       }
-      &_large{
+      &_large {
         font-size: 12px;
-    line-height: 1.5;
+        line-height: 1.5;
         @include mq(tablet) {
           font-size: 22px;
           line-height: 1.4;
         }
       }
-
     }
-    
   }
 
   &_form {
@@ -75,7 +73,8 @@
     letter-spacing: 0.02em;
     color: #000000;
     &_label {
-      font-family: 'Montserrat Medium';
+      cursor: pointer;
+      // font-family: 'Montserrat Medium';
       font-size: 10px;
       line-height: 1.2;
       letter-spacing: 0.02em;
