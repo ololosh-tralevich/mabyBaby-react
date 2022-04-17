@@ -90,7 +90,8 @@ const Test = () => {
 
     setAnswers(prevState => {
       if (index === -1) {
-        const newAnswers = [...prevState, { questionId, answer }];
+        // const newAnswers = [...prevState, { questionId, answer }];
+        const newAnswers = [...prevState, { questionId: Number(questionId), answer }]; // ! ! ! ! 
         localStorage.setItem('testAnswers',JSON.stringify({answers:newAnswers, currentQuestion}))
         // console.log(newAnswers)
         return newAnswers;
