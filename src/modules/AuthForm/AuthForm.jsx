@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import TextField from '../../shared/components/TextField/TextField';
-import Button from '../../shared/components/Button/Button';
+import Buttons from './buttons';
 
 import { initialState } from './initialState';
 import styles from './authForm.module.scss';
@@ -18,7 +18,7 @@ const AuthForm = ({ onSubmit }) => {
     }));
   };
 
-  const changeType = type => setType(type);
+  const changeType = useCallback(type => setType(type),[]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -50,22 +50,7 @@ const AuthForm = ({ onSubmit }) => {
           onType={handleChange}
           className={styles.TextField}
         />
-        <div className={styles.form__buttons}>
-          <Button
-            btnText={'Sign In '}
-            isActive={true}
-            type={'submit'}
-            className={styles.button}
-            onClickBtn={() => changeType('login')}
-          />
-          <Button
-            btnText={'Sign Up'}
-            isActive={false}
-            type={'submit'}
-            className={styles.button}
-            onClickBtn={() => changeType('register')}
-          />
-        </div>
+        < Buttons changeType = {changeType} />
       </form>
     </div>
   );
