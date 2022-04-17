@@ -28,7 +28,7 @@ const Test = () => {
     () =>{      
            const localQuestions = localStorage.getItem('questions');           
       if (localQuestions && JSON.parse(localQuestions).length) {
-        console.log(localStorage.getItem('testAnswers'))
+        // console.log(localStorage.getItem('testAnswers'))
         setQuestions({items:JSON.parse(localQuestions), loading:false, error:null})
         const saveAnswers = JSON.parse(localStorage.getItem('testAnswers'))??{answers:[], currentQuestion:0}
         setAnswers(saveAnswers.answers??[])
@@ -85,14 +85,14 @@ const Test = () => {
   }
 
   const onChangeAnswer = ({target:{ id:questionId, value:answer}}) => {    
-    console.log(questions)
+    // console.log(questions)
     const index = answers.findIndex(e => String(e.questionId) === String(questionId));
 
     setAnswers(prevState => {
       if (index === -1) {
         const newAnswers = [...prevState, { questionId, answer }];
         localStorage.setItem('testAnswers',JSON.stringify({answers:newAnswers, currentQuestion}))
-        console.log(newAnswers)
+        // console.log(newAnswers)
         return newAnswers;
       }
       const newAnswers = [...prevState];

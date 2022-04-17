@@ -20,7 +20,7 @@ const Question = ({
           checked={Boolean(selectedAnswers.find(
             e => e?.answer === answer && String(e?.questionId) === String(questionId)
           ))}
-        />{' '}
+        />
         {answer}
       </label>
     );
