@@ -4,27 +4,30 @@ import { PieChart, Pie, Cell } from 'recharts';
 import catPc from '../../images/results/catPcx.png';
 import catPc2x from '../../images/results/catPcx2.png';
 import { Link } from 'react-router-dom';
-import {getTestType,getGlobalState,getTestResult} from '../../redux/qaTests/qaTests-selectors'
+import {
+  getTestType,
+  getTestResult,
+} from '../../redux/qaTests/qaTests-selectors';
 import { useSelector, shallowEqual } from 'react-redux';
 
-
-
 const Results = () => {
-    const testType = useSelector(getTestType, shallowEqual)
-  const result = useSelector(getTestResult, shallowEqual)
-  
-  const correctAnswers=(Math.trunc((result.result.replace("%","")*1*12)/100));
-  const falseAnswers=12-correctAnswers
-  console.log(falseAnswers);
-  console.log(correctAnswers);
- 
+  const testType = useSelector(getTestType, shallowEqual);
+  const result = useSelector(getTestResult, shallowEqual);
+
+  const correctAnswers = Math.trunc(
+    (result.result.replace('%', '') * 1 * 12) / 100
+  );
+  const falseAnswers = 12 - correctAnswers;
+  // console.log(falseAnswers);
+  // console.log(correctAnswers);
+
   const data = [
     { name: 'false answer', value: falseAnswers },
     { name: 'true answer', value: correctAnswers },
   ];
-  
+
   const COLORS = ['#D7D7D7', '#FF6B09'];
-  
+
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({
     cx,
@@ -38,7 +41,7 @@ const Results = () => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  
+
     return (
       <text
         x={x}
@@ -68,16 +71,16 @@ const Results = () => {
             dataKey="value"
           >
             {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
             ))}
           </Pie>
         </PieChart>
       </>
     );
   };
-  
-
-  
 
   return (
     <div className="container">
@@ -86,7 +89,9 @@ const Results = () => {
         <p className={styles.header__text}>{`[ Testing ${testType}_]`}</p>
         {Crujok()}
         <div className={styles.answers}>
-          <p className={styles.text_answers}>Correct answers - {correctAnswers} </p>
+          <p className={styles.text_answers}>
+            Correct answers - {correctAnswers}{' '}
+          </p>
           <p>Total questions - 12</p>
         </div>
         <picture className={styles.picture}>
@@ -98,10 +103,10 @@ const Results = () => {
           <img src={catPc} alt="котек" />
         </picture>
         <h2>{result.mainMessage}</h2>
-        <p className={styles.text}>
-         {result.secondaryMessage}
-        </p>
-        <Link className={styles.tryAgainBtn} to='/test'>Try again</Link>
+        <p className={styles.text}>{result.secondaryMessage}</p>
+        <Link className={styles.tryAgainBtn} to="/test">
+          Try again
+        </Link>
       </div>
     </div>
   );
