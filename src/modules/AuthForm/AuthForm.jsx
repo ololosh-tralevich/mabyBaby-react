@@ -10,7 +10,6 @@ import styles from './authForm.module.scss';
 const AuthForm = ({ onSubmit }) => {
   const [form, setForm] = useState({ ...initialState });
   const [type, setType] = useState('login');
-
   const handleChange = ({ target }) => {
     const { name, value } = target;
     setForm(prevForm => ({
@@ -28,47 +27,47 @@ const AuthForm = ({ onSubmit }) => {
   };
 
   return (
-        <div className={styles.wrapper}>
-          <form className={styles.form} onSubmit={handleSubmit}>
-            <p className={styles.text}>
-              Login to our app using e-mail and password:
-            </p>
-            <TextField
-              type={'email'}
-              value={form.email}
-              name={'email'}
-              placeholder={'E-mail'}
-              required={true}
-              onType={handleChange}
-              className={styles.TextField}
-            />
-            <TextField
-              type={'password'}
-              value={form.password}
-              name={'password'}
-              placeholder={'Password'}
-              required={true}
-              onType={handleChange}
-              className={styles.TextField}
-            />
-            <div className={styles.form__buttons}>
-              <Button
-                btnText={'Sign In '}
-                isActive={true}
-                type={'submit'}
-                className={styles.button}
-                onClickBtn={() => changeType('login')}
-              />
-              <Button
-                btnText={'Sign Up'}
-                isActive={false}
-                type={'submit'}
-                className={styles.button}
-                onClickBtn={() => changeType('register')}
-              />
-            </div>
-          </form>
+    <div className={styles.wrapper}>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <p className={styles.text}>
+          Login to our app using e-mail and password:
+        </p>
+        <TextField
+          type={'email'}
+          value={form.email}
+          name={'email'}
+          placeholder={'E-mail'}
+          required={true}
+          onType={handleChange}
+          className={styles.TextField}
+        />
+        <TextField
+          type={'password'}
+          value={form.password}
+          name={'password'}
+          placeholder={'Password'}
+          required={true}
+          onType={handleChange}
+          className={styles.TextField}
+        />
+        <div className={styles.form__buttons}>
+          <Button
+            btnText={'Sign In '}
+            isActive={true}
+            type={'submit'}
+            className={styles.button}
+            onClickBtn={() => changeType('login')}
+          />
+          <Button
+            btnText={'Sign Up'}
+            isActive={false}
+            type={'submit'}
+            className={styles.button}
+            onClickBtn={() => changeType('register')}
+          />
         </div>
+      </form>
+    </div>
   );
 };
 

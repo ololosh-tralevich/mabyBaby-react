@@ -90,8 +90,10 @@ const Test = () => {
 
     setAnswers(prevState => {
       if (index === -1) {
-        const newAnswers = [...prevState, { questionId: Number(questionId), answer }];
-        localStorage.setItem('testAnswers',JSON.stringify({answers:newAnswers, currentQuestion}))        
+        // const newAnswers = [...prevState, { questionId, answer }];
+        const newAnswers = [...prevState, { questionId: Number(questionId), answer }]; // ! ! ! ! 
+        localStorage.setItem('testAnswers',JSON.stringify({answers:newAnswers, currentQuestion}))
+        // console.log(newAnswers)
         return newAnswers;
       }
       const newAnswers = [...prevState];
@@ -124,7 +126,7 @@ const Test = () => {
     <main>
     <div className={styles.test}>
       <div className={styles.test_title}>
-        <h2>{'[Testing ' + testType + ']'}</h2>
+        <h2>[Testing<br/>{testType}_]</h2>
         <Button
           btnText="Finish Test"
           type="button"
