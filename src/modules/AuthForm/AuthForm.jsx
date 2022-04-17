@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import TextField from '../../shared/components/TextField/TextField';
@@ -10,13 +10,14 @@ import styles from './authForm.module.scss';
 const AuthForm = ({ onSubmit }) => {
   const [form, setForm] = useState({ ...initialState });
   const [type, setType] = useState('login');
-  const handleChange = ({ target }) => {
+
+  const handleChange = useCallback(({ target }) => {
     const { name, value } = target;
     setForm(prevForm => ({
       ...prevForm,
       [name]: value,
     }));
-  };
+  }, []);
 
   const changeType = type => setType(type);
 

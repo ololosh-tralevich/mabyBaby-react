@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
+import { memo } from 'react';
 
-import styles from './textField.module.scss';
+import PropTypes from 'prop-types';
 
 const TextField = ({ type, name, value, placeholder, required, onType, className }) => {
   return (
@@ -16,7 +16,7 @@ const TextField = ({ type, name, value, placeholder, required, onType, className
   );
 };
 
-export default TextField;
+export default memo(TextField);
 
 TextField.propTypes = {
   type: PropTypes.string.isRequired,

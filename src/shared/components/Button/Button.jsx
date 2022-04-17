@@ -1,13 +1,9 @@
+import { memo } from 'react';
+
 import PropTypes from 'prop-types';
 
-import styles from './button.module.scss';
-
-const Button = ({ onClickBtn, btnText, isActive, type, className }) => {  
-  const isActiveBtn = () => {
-    return isActive ? styles.activeBtn : styles.inActiveBtn;   // удалить, если не используем
-  };
-
-  
+const Button = ({ onClickBtn, btnText, type, className }) => {
+  console.log('Button render')
   return (
     <button className={className} type={type} onClick={onClickBtn}>
       {btnText}
@@ -15,10 +11,10 @@ const Button = ({ onClickBtn, btnText, isActive, type, className }) => {
   );
 };
 
-export default Button;
+export default memo(Button);
 
 Button.propTypes = {
-  className:PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
   onClickBtn: PropTypes.func,
   btnText: PropTypes.string.isRequired,
   isActive: PropTypes.bool.isRequired,
