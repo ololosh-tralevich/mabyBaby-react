@@ -48,6 +48,8 @@ const Test = () => {
   }
 
   const onClickFinish = () => {
+    localStorage.removeItem('testAnswers');
+    localStorage.removeItem('questions');
     if (questions.items?.length === answers?.length) {
       dispatch(qaOperations.getResults({ answers, type: testType })).then(
         result => {
