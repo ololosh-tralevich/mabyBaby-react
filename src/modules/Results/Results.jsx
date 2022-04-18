@@ -80,11 +80,6 @@ const Results = () => {
       </>
     );
   };
-  useEffect(() => {
-    if (!result.result) {
-      navigate('/');
-    }
-  });
 
   return (
     <div className="container">
