@@ -1,6 +1,6 @@
 import Test from '../../modules/Test/Test';
 
-const TestPage = () => {
+const TestPage = () => {    
     return <Test/>
 }
 

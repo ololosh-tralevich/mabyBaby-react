@@ -3,63 +3,38 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://protest-backend.goit.global';
 
 const addAccessToken = token => {
-  axios.defaults.headers.common.AccessToken = `Bearer ${token}`;
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-const addRefreshToken = token => {
-  axios.defaults.headers.common.RefreshToken = `Bearer ${token}`;
-};
-
-const addSessionId = sId => {
-  axios.defaults.headers.common.SessionId = `Bearer ${sId}`;
-};
-
-
-
-const registerUser = userData => {
-  const { data: result } = axios.post('/auth/register', userData);
-  // console.log('REG: ', result);
+const registerUser = async userData => {
+  const { data: result } = await axios.post('/auth/register', userData);
   return result;
 };
 
-const loginUser = userData => {
-  const { data: result } = axios.post('/auth/login', userData);
+const loginUser = async userData => {
+  const { data: result } = await axios.post('/auth/login', userData);
   addAccessToken(result.accessToken);
-  addRefreshToken(result.refreshToken);
-  addSessionId(result.sid);
-  // console.log('Login: ', result);
   return result;
 };
 
-const logoutUser = () => {
-  const { data: result } = axios.post('/auth/logout');
-  // console.log('Logout: ', result)
-  return result;
-};
-
-const refreshUser = () => {
-  const { data: result } = axios.post('/auth/refresh'); // SID ????
-  addAccessToken(result.accessToken);
-  addRefreshToken(result.refreshToken);
-  addSessionId(result.sid);
-  // console.log('Refresh: ', result);
-  return result;
+const logoutUser = async () => {
+  const  data = await axios.post('/auth/logout');
+  return data;
 };
 
 // Google auth??
 
-const getUserInfo = () => {
-  const data = axios.get('/user');
-  // console.log('GetUsrInfo', result)
-  return data;
+const getCurrentUser = async accToken => {
+  addAccessToken(accToken);
+  const { data: result } = await axios.get('/user');
+  return result;
 };
 
 const authApi = {
   registerUser,
   loginUser,
   logoutUser,
-  refreshUser,
-  getUserInfo,
+  getCurrentUser,
 };
 
 export default authApi;

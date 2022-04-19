@@ -28,9 +28,9 @@ const loginUser = createAsyncThunk(
 
 const logoutUser = createAsyncThunk(
   '/auth/logout',
-  async (userData, { rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
-      const result = await authApi.logoutUser(userData); //user data ??
+      const result = await authApi.logoutUser();
       return result;
     } catch (err) {
       return rejectWithValue(err);
@@ -38,24 +38,12 @@ const logoutUser = createAsyncThunk(
   }
 );
 
-const refreshUser = createAsyncThunk(
-  '/user/refresh',
-  async (sessionId, { rejectWithValue }) => {
-    try {
-      const result = await authApi.refreshUser(sessionId); //session id ??
-      return result;
-    } catch (err) {
-      return rejectWithValue(err);
-    }
-  }
-);
-
-const getUserInfo = createAsyncThunk(
+const getCurrentUser = createAsyncThunk(
   '/user',
   async (_, { getState, rejectWithValue }) => {
     try {
-      const { user } = getState();
-      const result = await authApi.getUserInfo(user.token); //user token ??
+      const { auth } = getState();
+      const result = await authApi.getCurrentUser(auth.accessToken);
       return result;
     } catch (err) {
       return rejectWithValue(err);
@@ -63,8 +51,8 @@ const getUserInfo = createAsyncThunk(
   },
   {
     condition: (_, { getState }) => {
-      const { user } = getState();
-      if (!user.token) {
+      const { auth } = getState();
+      if (!auth.accessToken) {
         return false;
       }
     },
@@ -75,6 +63,5 @@ export const userOperations = {
   registerUser,
   loginUser,
   logoutUser,
-  refreshUser,
-  getUserInfo,
+  getCurrentUser,
 };

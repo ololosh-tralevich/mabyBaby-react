@@ -1,12 +1,13 @@
+import { memo } from 'react';
+
 import PropTypes from 'prop-types';
 
-import styles from './textField.module.scss';
-
-const TextField = ({ type, name, placeholder, required, onType }) => {
+const TextField = ({ type, name, value, placeholder, required, onType, className }) => {
   return (
     <input
-      className={styles.textField}
+      className={className}
       type={type}
+      value={value}
       name={name}
       placeholder={placeholder}
       required={required}
@@ -15,11 +16,12 @@ const TextField = ({ type, name, placeholder, required, onType }) => {
   );
 };
 
-export default TextField;
+export default memo(TextField);
 
 TextField.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   required: PropTypes.bool.isRequired,
   onType: PropTypes.func.isRequired,

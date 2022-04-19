@@ -21,12 +21,12 @@ const MyRoutes = () => {
           <Route element={<PublicRoute />}>
             <Route path="auth" element={<AuthPage />} />
           </Route>
+          <Route path="contacts" element={<ContactsPage />} />
           <Route element={<PrivateRoute />}>
             <Route index element={<MainPage />} />
             <Route path="test" element={<TestPage />} />
             <Route path="results" element={<ResultsPage />} />
             <Route path="useful-info" element={<UsefulInfoPage />} />
-            <Route path="contacts" element={<ContactsPage />} />
           </Route>
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
