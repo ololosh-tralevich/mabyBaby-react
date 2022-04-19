@@ -3,18 +3,16 @@ import styles from './results.module.scss';
 import { PieChart, Pie, Cell } from 'recharts';
 import catPc from '../../images/results/catPcx.png';
 import catPc2x from '../../images/results/catPcx2.png';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   getTestType,
   getTestResult,
 } from '../../redux/qaTests/qaTests-selectors';
 import { useSelector, shallowEqual } from 'react-redux';
-import { useEffect } from 'react';
 
 const Results = () => {
   const testType = useSelector(getTestType, shallowEqual);
   const result = useSelector(getTestResult, shallowEqual);
-  const navigate = useNavigate();
   const correctAnswers = Math.round(
     (result.result.replace('%', '') * 12) / 100
   );
